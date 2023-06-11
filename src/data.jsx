@@ -317,14 +317,14 @@ export const portfolio = [
   {
     id: 3,
     img: Work3,
-    deploylink:"https://www.google.com",
-    title: 'My Portfolio',
+    deploylink:"https://my-portfolio-reactjs-opal.vercel.app/",
+    title: 'My Portfolio (React JS)',
     
     details: [
       {
         icon: <FiFileText />,
         title: 'Project : ',
-        desc: 'Video',
+        desc: 'Portfolio',
         
       },
       {
@@ -336,13 +336,13 @@ export const portfolio = [
       {
         icon: <FaCode />,
         title: 'Language : ',
-        desc: 'Adobe Premium',
+        desc: 'React JS',
         
       },
       {
         icon: <FiExternalLink />,
         title: 'Preview : ',
-         desc:'www.dibble.com',
+         desc:'https://my-portfolio-reactjs-opal.vercel.app/',
       },
     ],
   },
