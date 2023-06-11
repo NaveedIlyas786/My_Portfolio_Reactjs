@@ -7,7 +7,7 @@ import {
   FaEnvelope,
   FaPhoneSquareAlt,
   FaFacebookF,
-  FaTwitter,
+  FaInstagram,
   FaYoutube,
   FaDribbble,
   FaEnvelopeOpen,
@@ -17,10 +17,6 @@ import "./contact.css";
 import ParticlesAnimation from "../../components/particleAnimation/ParticlesAnimation";
 import AOS from 'aos';
 import "aos/dist/aos.css";
-
-
-  
-
 
 const Contact = () => {
   const [numberOfCircles, setNumberOfCircles] = useState();
@@ -44,23 +40,14 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_nxgivm5",
-        "template_4q5gfko",
-        form.current,
-        "ZoeGcyZKrJpkFAzfd"
-      )
-      .then(
-        (result) => {
-          e.target.reset();
-          console.log(result.text);
-          console.log("Email Sent !");
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    emailjs.sendForm('service_ie9qxq2', 'template_werla75', form.current, 'ZoeGcyZKrJpkFAzfd')
+    .then((result) => {
+      e.target.reset();
+      console.log(result.text);
+      console.log("Email Sent !");
+    }, (error) => {
+        console.log(error.text);
+    });
   };
 
   const [showSuccess, setShowSuccess] = useState(false);
@@ -89,8 +76,7 @@ const Contact = () => {
         <div className="contact__data">
           <h3 className="contact__title" data-aos="fade-right">Don't be Shy !</h3>
           <p className="contact__description" data-aos="fade-right">
-            Feel Free to Contact with me at given contacts, And As Fresher I am
-            able to work in a confident manner with React JS
+          Feel free to get in touch with me using the given contacts. As an entry-level, I have the confidence to work effectively with React JS.
           </p>
           <div className="contact__info">
             <div className="info__item" data-aos="fade-right">
@@ -109,20 +95,21 @@ const Contact = () => {
             </div>
           </div>
           <div className="contact__socials">
-            <a href="https://facebook.com" className="contact__social-link" data-aos="fade-up">
+            <a href="https://web.facebook.com/naveedilyas2?_rdc=1&_rdr" target="_blank" className="contact__social-link" data-aos="fade-up">
               <FaFacebookF />
             </a>
-            <a href="https://twitter.com" className="contact__social-link" data-aos="fade-down">
-              <FaTwitter />
+            <a href="https://www.instagram.com/naveedilyas321/" target="_blank" className="contact__social-link" data-aos="fade-down">
+              <FaInstagram />
             </a>
-            <a href="https://youtube.com" className="contact__social-link" data-aos="fade-up">
+            <a href="https://www.youtube.com/channel/UCZXWV9IFXyzoN37TegrEquA" target="_blank" className="contact__social-link" data-aos="fade-up">
               <FaYoutube />
             </a>
-            <a href="https://dribble.com" className="contact__social-link" data-aos="fade-down">
+            <a href="https://my-portfolio-reactjs-opal.vercel.app/" target="_blank" className="contact__social-link" data-aos="fade-down">
               <FaDribbble />
             </a>
           </div>
         </div>
+        {/* //! Contact Form to send Email */}
         <form className="contact__form" ref={form} onSubmit={sendEmail}>
           <div className="form__input-group">
             <div className="form__input-div" data-aos="fade-left">
@@ -130,7 +117,7 @@ const Contact = () => {
                 required
                 type="text"
                 placeholder="Your Name"
-                name="user_name"
+                name="name"
                 className="form__control"
               />
             </div>
@@ -139,17 +126,11 @@ const Contact = () => {
                 required
                 type="email"
                 placeholder="Your Email"
-                name="user_email"
+                name="email"
                 className="form__control"
               />
             </div>
-            <div className="form__input-div" data-aos="fade-left">
-              <input
-                type="text"
-                placeholder="Your Subject"
-                className="form__control"
-              />
-            </div>
+            
           </div>
           <div className="form__input-div" data-aos="fade-right">
             <textarea
@@ -167,7 +148,7 @@ const Contact = () => {
                   <FcCheckmark className="tick" size={80} />
                   <p className="messagee">
                     Your Email To "Naveed Ilyas" has been Sent Successfully ...
-                    !{" "}
+                    !
                     <span className="span">
                       <br /> I will contact you Soon 😊
                     </span>

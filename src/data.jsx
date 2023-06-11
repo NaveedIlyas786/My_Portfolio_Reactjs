@@ -84,7 +84,7 @@ export const personalInfo = [
 
   {
     id: 5,
-    title: 'Freelance : ',
+    title: 'Freelancing : ',
     description: 'In Process',
   },
 
@@ -205,45 +205,46 @@ export const skills = [
 
   {
     id: 2,
-    title: 'React JS',
-    percentage: '70',
+    title: 'CSS',
+    percentage: '80',
   },
 
   {
     id: 3,
-    title: 'Jquery',
-    percentage: '50',
+    title: 'Bootstrap',
+    percentage: '85',
+    
   },
 
   {
     id: 4,
-    title: 'Bootstrap',
-    percentage: '85',
-  },
-
-  {
-    id: 5,
     title: 'Tailwind CSS',
     percentage: '80',
   },
 
   {
-    id: 6,
-    title: 'CSS',
-    percentage: '90',
-    
-  },
-
-  {
-    id: 7,
+    id: 5,
     title: 'SASS/SCSS',
     percentage: '75',
   },
 
   {
-    id: 8,
-    title: 'React',
+    id: 6,
+    title: 'Jquery',
+    percentage: '50',
+    
+  },
+
+  {
+    id: 7,
+    title: 'Javascript',
     percentage: '70',
+  },
+
+  {
+    id: 8,
+    title: 'React JS',
+    percentage: '80',
   },
 ];
 
