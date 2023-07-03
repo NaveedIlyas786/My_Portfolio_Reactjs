@@ -285,7 +285,7 @@ export const portfolio = [
   {
     id: 2,
     img: Work2,
-    deploylink:"https://6467b455cc80c94e16dcc936--taupe-druid-1b777c.netlify.app/",
+    deploylink:"https://youtube-clone-tailwind-css-react-js-knuu.vercel.app/",
     title: 'Youtube Clone using Context_APi "Tailwind CSS"',
     
     details: [
