@@ -228,23 +228,23 @@ export const skills = [
     percentage: '75',
   },
 
-  {
-    id: 6,
-    title: 'Jquery',
-    percentage: '50',
-    
-  },
 
   {
-    id: 7,
+    id: 6,
     title: 'Javascript',
     percentage: '70',
   },
 
   {
-    id: 8,
+    id: 7,
     title: 'React JS',
     percentage: '80',
+  },
+  {
+    id: 8,
+    title: 'Redux Toolkit',
+    percentage: '80',
+    
   },
 ];
 
