@@ -13,6 +13,7 @@ import {
   FaEnvelopeOpen,
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
+import {   BsGithub } from "react-icons/bs";
 import "./contact.css";
 import ParticlesAnimation from "../../components/particleAnimation/ParticlesAnimation";
 import AOS from 'aos';
@@ -104,8 +105,8 @@ const Contact = () => {
             <a href="https://www.youtube.com/channel/UCZXWV9IFXyzoN37TegrEquA" target="_blank" className="contact__social-link" data-aos="fade-up">
               <FaYoutube />
             </a>
-            <a href="https://my-portfolio-reactjs-opal.vercel.app/" target="_blank" className="contact__social-link" data-aos="fade-down">
-              <FaDribbble />
+            <a href="https://github.com/NaveedIlyas786" target="_blank" className="contact__social-link" data-aos="fade-down">
+              <BsGithub size={17} />
             </a>
           </div>
         </div>

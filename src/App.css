@@ -138,7 +138,7 @@ background-color: var(--first-color);
 position: absolute;
 inset-block: -2px;
 right: 0;
-width: 55px;
+width: 50px;
 border-radius: 50%;
 color: var(--text-white);
 font-size: var(--large-font-size);

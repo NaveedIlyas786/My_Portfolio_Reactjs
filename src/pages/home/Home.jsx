@@ -71,7 +71,7 @@ const Home = () => {
           <p className="home_description" data-aos="fade-up">
             I am Naveed Ilyas having skills of Developing the Web-Applications
             using React JS, with multiple technologies Such as "CSS","Tailwind
-            CSS","SASS/SCSS" etc.
+            CSS","SASS/SCSS" also With Redux Toolkit for state management etc.
           </p>
           <Link to="/about" className="button" >
             More About Me

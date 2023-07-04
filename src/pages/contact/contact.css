@@ -49,13 +49,11 @@
   background-color: var(--container-color);
   border-radius: 50%;
   text-align: center;
-  transition: all 0.2s ease;
 }
 .contact__social-link:hover {
   background-color: var(--first-color);
   color: var(--text-white);
-  transition: all 0.2s ease-in-out;
-  transform: scale(1.1);
+  transform: scale(1.1)!important;
 }
 
 .form__input-group {
