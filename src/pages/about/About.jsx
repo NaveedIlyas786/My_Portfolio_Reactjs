@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Info from '../../components/Info';
 import Stats from '../../components/Stats';
 import {FaDownload} from "react-icons/fa";
-import CV from "../../assets/NAVEED_Resume.pdf";
+import CV from "../../assets/NAVEEDResume.pdf";
 import Skills from '../../components/Skills';
 import { resume } from '../../data';
 import ResumeItem from '../../components/ResumeItem';
