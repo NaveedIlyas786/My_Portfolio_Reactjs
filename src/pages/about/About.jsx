@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Info from '../../components/Info';
 import Stats from '../../components/Stats';
 import {FaDownload} from "react-icons/fa";
-import CV from "../../assets/NAVEEDResume.pdf";
+import CV from "../../assets/Naveed_Ilyas_Resume.pdf";
 import Skills from '../../components/Skills';
 import { resume } from '../../data';
 import ResumeItem from '../../components/ResumeItem';
