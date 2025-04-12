@@ -37,9 +37,10 @@ useEffect(()=>{
   AOS.init({duration:2000})
 },[])
 
+
   return (
     <main className="section container">
-            <ParticlesAnimation numberOfCircles={numberOfCircles} />
+      <ParticlesAnimation numberOfCircles={numberOfCircles} />
 
       <section className="about" data-aos="fade-down">
         <h2 className="section__title">

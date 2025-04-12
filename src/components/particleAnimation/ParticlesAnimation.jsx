@@ -1,26 +1,26 @@
-import React from "react";
-import "./ParticlesAnimation.css"
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { useCallback } from "react";
+import React from 'react'
+import './ParticlesAnimation.css'
+import Particles from 'react-tsparticles'
+import { loadFull } from 'tsparticles'
+import { useCallback } from 'react'
 
-
-
-const  ParticlesAnimation=({numberOfCircles,CircleSizeMin,CircleSizeMax})=> {
+const ParticlesAnimation = ({
+  numberOfCircles,
+  CircleSizeMin,
+  CircleSizeMax,
+}) => {
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
-  }, []);
+    await loadFull(engine)
+  }, [])
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  });
-
+    await console.log('containerParticles: ', container)
+  })
 
   return (
-   
     <Particles
-      className="myparticles"
-      id="tsparticles"
+      className='myparticles'
+      id='tsparticles'
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
@@ -29,7 +29,7 @@ const  ParticlesAnimation=({numberOfCircles,CircleSizeMin,CircleSizeMax})=> {
           events: {
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: 'repulse',
             },
             // onClick: {
             //   enable: true,
@@ -48,32 +48,32 @@ const  ParticlesAnimation=({numberOfCircles,CircleSizeMin,CircleSizeMax})=> {
         },
         particles: {
           color: {
-            value: "#A0A09B",
+            value: '#A0A09B',
           },
           links: {
-            color: "#A0A09B",
+            color: '#A0A09B',
             distance: 150,
             enable: true,
             opacity: 0.2,
             width: 1,
           },
           shape: {
-            type: "circle",
+            type: 'circle',
             options: {
-              color: "blue",
+              color: 'blue',
             },
           },
           size: {
             value: { min: CircleSizeMin, max: CircleSizeMax },
           },
           number: {
-            value:numberOfCircles,
+            value: numberOfCircles,
           },
           move: {
-            direction: "none",
+            direction: 'none',
             enable: true,
             outMode: {
-              default: "bounce",
+              default: 'bounce',
             },
             speed: 2,
           },
@@ -86,7 +86,7 @@ const  ParticlesAnimation=({numberOfCircles,CircleSizeMin,CircleSizeMax})=> {
         },
       }}
     />
-  );
+  )
 }
 
-export default ParticlesAnimation;
+export default ParticlesAnimation
