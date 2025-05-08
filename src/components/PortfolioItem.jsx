@@ -1,64 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import Close from "../assets/close.svg";
-import AOS from 'aos';
-import "aos/dist/aos.css"
+import React, { useEffect, useState } from 'react'
+import Close from '../assets/close.svg'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-const PortfolioItem = ({img, title, details, deploylink}) => {
-  const [model, setModel]=useState(false);
+const PortfolioItem = ({ img, title, details, deploylink }) => {
+  const [model, setModel] = useState(false)
   // const [mydesc, setMydesc] = useState(null);
 
-
-  const toggleModel=()=>{
-    setModel(!model);
+  /*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Toggle the model state to show/hide the portfolio model.
+   * This function is used to toggle the portfolio model which is
+   * used to show the details of the portfolio item.
+   */
+  /*******  168e8d95-e0e6-4f03-818a-91f139e21927  *******/
+  const toggleModel = () => {
+    setModel(!model)
   }
-  const gotochrome=()=>{
-    window.open(deploylink, "_blank");
+  const gotochrome = () => {
+    window.open(deploylink, '_blank')
   }
 
-    //! For AOS page scrolling Aimation ↴↴
-useEffect(()=>{
-  AOS.init({duration:2000})
-},[])
+  //! For AOS page scrolling Aimation ↴↴
+  useEffect(() => {
+    AOS.init({ duration: 2000 })
+  }, [])
 
   return (
-    <div className="portfolio__item">
-        <img src={img} alt="" className="portfolio__img" />
-        <div className="portfolio__hover" onClick={toggleModel}>
-          <h2 className="portfolio__title">{title}</h2>
-        </div>
-        {model && (
-          <div className="portfolio__model" >
-          <div className="portfolio__model-content" data-aos="fade-down">
-            <img src={Close} alt="" className="model__close" onClick={toggleModel} />
-              <h3 className='model__title'>{title}</h3>
-              <ul className="model__list grid " onClick={gotochrome}>
-                {details.map(({icon,title, desc},index)=>{
-                  return (
-                    
-                   <li className="model__item" key={index}>
-                    
-                     <span>
-                        <div className="item__icon">
-                          {icon}
-                        </div>
-                     </span>
-                     <div>
-                      <span className="item__title">{title}</span>
-                      <span className="item__details" >
-                      {desc}
-                      </span>
-                     </div>
-                   </li>
-                  )
-                }
+    <div className='portfolio__item'>
+      <img src={img} alt='' className='portfolio__img' />
+      <div className='portfolio__hover' onClick={toggleModel}>
+        <h2 className='portfolio__title'>{title}</h2>
+      </div>
+      {model && (
+        <div className='portfolio__model'>
+          <div className='portfolio__model-content' data-aos='fade-down'>
+            <img
+              src={Close}
+              alt=''
+              className='model__close'
+              onClick={toggleModel}
+            />
+            <h3 className='model__title'>{title}</h3>
+            <ul className='model__list grid ' onClick={gotochrome}>
+              {details.map(({ icon, title, desc }, index) => {
+                return (
+                  <li className='model__item' key={index}>
+                    <span>
+                      <div className='item__icon'>{icon}</div>
+                    </span>
+                    <div>
+                      <span className='item__title'>{title}</span>
+                      <span className='item__details'>{desc}</span>
+                    </div>
+                  </li>
                 )
-              }
-              </ul>
-              <button className='deploybtn' onClick={gotochrome}>Preview Deploy Version</button>
-              <img src={img} alt="" className="model__img" onClick={gotochrome}/>
-          </div>  
+              })}
+            </ul>
+            <button className='deploybtn' onClick={gotochrome}>
+              Preview Deploy Version
+            </button>
+            <img src={img} alt='' className='model__img' onClick={gotochrome} />
+          </div>
         </div>
-        )}
+      )}
     </div>
   )
 }

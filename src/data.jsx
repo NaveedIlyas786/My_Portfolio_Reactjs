@@ -12,7 +12,7 @@ import { FiFileText, FiUser, FiExternalLink } from 'react-icons/fi'
 import Work1 from './assets/1.png'
 import Work2 from './assets/youtube.png'
 import Work3 from './assets/HomePortfolio.png'
-import Work4 from './assets/firebaseCrud.png'
+import Work4 from './assets/construction.jpg'
 import Work5 from './assets/ecommerceProject.png'
 import Work6 from './assets/JsonCrud.png'
 
@@ -196,7 +196,6 @@ export const skills = [
     title: 'Html',
     percentage: '90',
   },
-
   {
     id: 2,
     title: 'CSS',
@@ -218,7 +217,7 @@ export const skills = [
   {
     id: 5,
     title: 'Next.js',
-    percentage: '80',
+    percentage: '70',
   },
 
   {
@@ -230,12 +229,32 @@ export const skills = [
   {
     id: 7,
     title: 'React.js',
-    percentage: '80',
+    percentage: '85',
   },
   {
     id: 8,
     title: 'Redux Toolkit',
     percentage: '80',
+  },
+  {
+    id: 9,
+    title: 'Git / Github',
+    percentage: '80',
+  },
+  {
+    id: 10,
+    title: 'Shadcn',
+    percentage: '70',
+  },
+  {
+    id: 11,
+    title: 'Problem Solving',
+    percentage: '80',
+  },
+  {
+    id: 12,
+    title: 'Typescript (Learning)',
+    percentage: '30',
   },
 ]
 
@@ -274,7 +293,8 @@ export const portfolio = [
   {
     id: 2,
     img: Work2,
-    deploylink: 'https://youtube-clone-tailwind-css-react-js-knuu.vercel.app/',
+    deploylink:
+      'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
     title: 'Youtube Clone using Context_APi "Tailwind CSS"',
 
     details: [
@@ -296,7 +316,7 @@ export const portfolio = [
       {
         icon: <FiExternalLink />,
         title: 'Preview : ',
-        desc: 'https://6467b455cc80c94e16dcc936--taupe-druid-1b777c.netlify.app/',
+        desc: 'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
       },
     ],
   },
@@ -334,19 +354,19 @@ export const portfolio = [
   {
     id: 4,
     img: Work4,
-    deploylink: 'https://react-crud-with-firebase.vercel.app/',
-    title: 'React Firebase CRUD  "Bootstrap & CSS"',
+    deploylink: 'https://www.cmsdms.com/',
+    title: 'Construction Management System (Protected)',
 
     details: [
       {
         icon: <FiFileText />,
         title: 'Project : ',
-        desc: 'React CRUD Firebase',
+        desc: 'Construction Management System',
       },
       {
         icon: <FiUser />,
         title: 'Client : ',
-        desc: 'Self',
+        desc: 'John Tylor',
       },
       {
         icon: <FaCode />,
@@ -356,7 +376,7 @@ export const portfolio = [
       {
         icon: <FiExternalLink />,
         title: 'Preview : ',
-        desc: 'https://react-crud-with-firebase.vercel.app/',
+        desc: 'https://www.cmsdms.com/',
       },
     ],
   },
