@@ -109,7 +109,7 @@ export const stats = [
   {
     id: 1,
     no: '3+',
-    title: 'Years of <br /> Experience', //!we will install "html-react-parser" in 'Stats.jsx' to implement break tag (<br/>)
+    title: 'Years of <br /> Experience', //!we will install "html-react-parser" in the 'Stats.jsx' to implement break tag (<br/>)
   },
 
   {
