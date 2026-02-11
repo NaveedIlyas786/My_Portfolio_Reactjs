@@ -133,7 +133,7 @@ const Contact = () => {
                 type="text"
                 placeholder="Your Name"
                 name="name"
-                className="form__control"
+                className="form__control" 
               />
             </div>
             <div className="form__input-div" data-aos="fade-left">

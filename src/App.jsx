@@ -8,6 +8,7 @@ import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Portfolio from "./pages/portfolio/Portfolio";
 
+
 function App() {
   return (
     <BrowserRouter>
