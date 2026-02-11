@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { FcApproval } from "react-icons/fc";
-import { FcCheckmark } from "react-icons/fc";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   FaEnvelope,
@@ -11,9 +11,10 @@ import {
   FaYoutube,
   FaDribbble,
   FaEnvelopeOpen,
+  FaLinkedinIn,
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
-import {   BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 import "./contact.css";
 import ParticlesAnimation from "../../components/particleAnimation/ParticlesAnimation";
 import AOS from 'aos';
@@ -37,27 +38,39 @@ const Contact = () => {
   };
 
   const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    emailjs.sendForm('service_ie9qxq2', 'template_werla75', form.current, 'ZoeGcyZKrJpkFAzfd')
+    emailjs.sendForm('service_28lq1bj', 'template_werla75', form.current, 'ZoeGcyZKrJpkFAzfd')
     .then((result) => {
+      setIsLoading(false);
       e.target.reset();
+      toast.success('Message sent successfully! Thank you for reaching out. I will get back to you soon!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
       console.log(result.text);
-      console.log("Email Sent !");
     }, (error) => {
-        console.log(error.text);
+      setIsLoading(false);
+      toast.error('Oops! Something went wrong. Please try again or contact me directly at naveedilyas321@gmail.com', {
+        position: "top-right",
+        autoClose: 6000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
+      console.log(error.text);
     });
-  };
-
-  const [showSuccess, setShowSuccess] = useState(false);
-
-  const closeMessage = () => {
-    setShowSuccess(false);
-  };
-  const handleClick = () => {
-    setShowSuccess(true);
   };
 
 
@@ -69,6 +82,7 @@ const Contact = () => {
   return (
     <section className="contact section">
       <ParticlesAnimation numberOfCircles={numberOfCircles} />
+      <ToastContainer />
 
       <h2 className="section__title">
         Get In <span>Touch</span>
@@ -99,8 +113,8 @@ const Contact = () => {
             <a href="https://web.facebook.com/naveedilyas2?_rdc=1&_rdr" target="_blank" className="contact__social-link" data-aos="fade-up">
               <FaFacebookF />
             </a>
-            <a href="https://www.instagram.com/naveedilyas321/" target="_blank" className="contact__social-link" data-aos="fade-down">
-              <FaInstagram />
+            <a href="https://www.linkedin.com/in/naveed-ilyas-222679350/" target="_blank" className="contact__social-link" data-aos="fade-up">
+              <FaLinkedinIn />
             </a>
             <a href="https://www.youtube.com/channel/UCZXWV9IFXyzoN37TegrEquA" target="_blank" className="contact__social-link" data-aos="fade-up">
               <FaYoutube />
@@ -133,6 +147,15 @@ const Contact = () => {
             </div>
             
           </div>
+          <div className="form__input-div" data-aos="fade-up">
+            <input
+              required
+              type="text"
+              placeholder="Subject"
+              name="subject"
+              className="form__control"
+            />
+          </div>
           <div className="form__input-div" data-aos="fade-right">
             <textarea
               required
@@ -142,37 +165,26 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <div >
-            {showSuccess && (
-              <div className="success-overlay" data-aos="fade-up">
-                <div className="success-popup" >
-                  <FcCheckmark className="tick" size={80} />
-                  <p className="messagee">
-                    Your Email To "Naveed Ilyas" has been Sent Successfully ...
-                    !
-                    <span className="span">
-                      <br /> I will contact you Soon 😊
-                    </span>
-                  </p>
-                  <button className="closebtn" onClick={closeMessage}>
-                    Close
-                  </button>
-                </div>
-              </div>
+          <button
+            className="button"
+            type="submit"
+            value="Send"
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <>
+                <span className="spinner"></span>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <span className="button__icon contact__button-icon">
+                  <FiSend />
+                </span>
+              </>
             )}
-
-          </div>
-            <button
-              className="button"
-              type="submit"
-              value="Send"
-              onClick={handleClick}
-            >
-              Send Me
-              <span className="button__icon contact__button-icon">
-                <FiSend />
-              </span>
-            </button>
+          </button>
         </form>
       </div>
     </section>

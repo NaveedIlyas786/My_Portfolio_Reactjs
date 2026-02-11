@@ -59,17 +59,15 @@ const Home = () => {
         <div className='home__data'>
           <h1 className='home__title' data-aos='fade-right'>
             I'm Naveed Ilyas. <br />
-            <span>React.js Web Developer</span>
+            <span>Senior React Developer</span>
           </h1>
 
           <p className='home_description' data-aos='fade-up'>
-            Hi, I am Naveed Ilyas, a passionate Frontend Developer with 1.5
-            years of experience in React.js at BuildAi360. I specialize in
-            creating visually stunning and user-friendly web applications using
-            React.js and its associated libraries. I have a strong foundation in
-            HTML, CSS, and JavaScript, and have a keen eye for design and user
-            experience. I am committed to delivering high-quality code and
-            ensuring that my clients' needs are met.
+            Hi, I am Naveed Ilyas, a Senior React Developer with 3+ years of professional experience 
+            in building scalable, high-performance web applications. I specialize in React.js, Next.js, 
+            TypeScript, and modern frontend architecture. With a proven track record of delivering 15+ 
+            successful projects and earning 5+ industry awards, I am passionate about creating 
+            exceptional user experiences and writing clean, maintainable code that drives business results.
           </p>
           <Link to='/about' className='button'>
             More About Me

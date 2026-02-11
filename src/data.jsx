@@ -13,8 +13,6 @@ import Work1 from './assets/1.png'
 import Work2 from './assets/youtube.png'
 import Work3 from './assets/HomePortfolio.png'
 import Work4 from './assets/construction.jpg'
-import Work5 from './assets/ecommerceProject.png'
-import Work6 from './assets/JsonCrud.png'
 
 import Theme1 from './assets/purple.png'
 import Theme2 from './assets/red.png'
@@ -110,26 +108,26 @@ export const personalInfo = [
 export const stats = [
   {
     id: 1,
-    no: '1.5 Years',
-    title: '<br /> Experience', //!we will install "html-react-parser" in 'Stats.jsx' to implement break tag (<br/>)
+    no: '3+',
+    title: 'Years of <br /> Experience', //!we will install "html-react-parser" in 'Stats.jsx' to implement break tag (<br/>)
   },
 
   {
     id: 2,
-    no: '06+',
+    no: '15+',
     title: 'Completed <br /> Projects',
   },
 
   {
     id: 3,
-    no: '05+',
+    no: '10+',
     title: 'Happy <br /> Customers',
   },
 
   {
     id: 4,
-    no: '03+',
-    title: ' Awards <br /> Won',
+    no: '5+',
+    title: 'Awards <br /> Won',
   },
 ]
 
@@ -138,27 +136,27 @@ export const resume = [
     id: 1,
     category: 'experience',
     icon: <FaBriefcase />,
-    year: 'Feb (2024)- Present (2025)',
-    title: 'MERN Stack Developer ',
-    desc: 'During this period I worked as a MERN Stack Developer and learned different technologies related to MERN Stack',
+    year: 'Feb 2024 - Present',
+    title: 'Senior React Developer <span> / Tech Lead </span>',
+    desc: 'Leading frontend development with advanced React.js, Next.js, TypeScript, and modern state management solutions. Architecting scalable applications and mentoring development teams.',
   },
 
   {
     id: 2,
     category: 'experience',
     icon: <FaBriefcase />,
-    year: 'August(2022) - Feb (2024)',
+    year: 'August 2022 - Feb 2024',
     title: 'React.js <span> Developer </span>',
-    desc: 'During this period I worked as a React.js Developer and learned different technologies related to React.js',
+    desc: 'Developed enterprise-level web applications using React.js, Redux Toolkit, and modern frontend technologies. Collaborated with cross-functional teams to deliver high-quality solutions.',
   },
 
   {
     id: 3,
     category: 'experience',
     icon: <FaBriefcase />,
-    year: 'Feb  -  August (2022)',
-    title: 'Learning <span> Web-Development </span>',
-    desc: 'After my Graduation I started learning Web-Development and learned Web-Development',
+    year: 'Feb 2022 - August 2022',
+    title: 'Frontend Developer <span> / Trainee </span>',
+    desc: 'Started professional journey in web development, mastering HTML, CSS, JavaScript, and React.js fundamentals through hands-on projects and continuous learning.',
   },
 
   {
@@ -194,67 +192,67 @@ export const skills = [
   {
     id: 1,
     title: 'Html',
-    percentage: '90',
+    percentage: '95',
   },
   {
     id: 2,
     title: 'CSS',
-    percentage: '80',
+    percentage: '90',
   },
 
   {
     id: 3,
     title: 'Bootstrap',
-    percentage: '85',
+    percentage: '90',
   },
 
   {
     id: 4,
     title: 'Tailwind CSS',
-    percentage: '80',
+    percentage: '92',
   },
 
   {
     id: 5,
     title: 'Next.js',
-    percentage: '70',
+    percentage: '85',
   },
 
   {
     id: 6,
     title: 'Javascript',
-    percentage: '80',
+    percentage: '92',
   },
 
   {
     id: 7,
     title: 'React.js',
-    percentage: '85',
+    percentage: '95',
   },
   {
     id: 8,
     title: 'Redux Toolkit',
-    percentage: '80',
+    percentage: '90',
   },
   {
     id: 9,
     title: 'Git / Github',
-    percentage: '80',
+    percentage: '88',
   },
   {
     id: 10,
     title: 'Shadcn',
-    percentage: '70',
+    percentage: '85',
   },
   {
     id: 11,
     title: 'Problem Solving',
-    percentage: '80',
+    percentage: '90',
   },
   {
     id: 12,
-    title: 'Typescript (Learning)',
-    percentage: '30',
+    title: 'TypeScript',
+    percentage: '80',
   },
 ]
 
@@ -377,66 +375,6 @@ export const portfolio = [
         icon: <FiExternalLink />,
         title: 'Preview : ',
         desc: 'https://www.cmsdms.com/',
-      },
-    ],
-  },
-
-  {
-    id: 5,
-    img: Work5,
-    deploylink: 'https://react-ecommerce-redux-toolkit-sass.vercel.app/',
-    title: 'Ecommerce_ReactJS using Redux Toolkit & SASS/SCSS',
-
-    details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'Ecommerce',
-      },
-      {
-        icon: <FiUser />,
-        title: 'API : ',
-        desc: 'platzi fake store api',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'React JS',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://react-ecommerce-redux-toolkit-sass.vercel.app/',
-      },
-    ],
-  },
-
-  {
-    id: 6,
-    img: Work6,
-    deploylink: 'https://react-crud-with-json-server-axios.vercel.app/',
-    title: 'JSON_SERVER_REACT_CRUD',
-
-    details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'JSON SERVER CRUD',
-      },
-      {
-        icon: <FiUser />,
-        title: 'Client : ',
-        desc: 'Self',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'Javascript',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://react-json-axios-crud.vercel.app/',
       },
     ],
   },

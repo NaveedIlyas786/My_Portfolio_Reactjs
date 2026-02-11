@@ -1,6 +1,53 @@
 .portfolio__container{
     grid-template-columns:repeat(3, 1fr);
 }
+.portfolio__note {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.portfolio__note-content {
+    background: linear-gradient(135deg, hsla(271, 76%, 53%, 0.1) 0%, hsla(271, 76%, 53%, 0.05) 100%);
+    border-left: 4px solid var(--first-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.portfolio__note-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio__note-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    color: var(--first-color);
+    opacity: 0.9;
+}
+
+.portfolio__note-title {
+    color: var(--first-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.3px;
+}
+
+.portfolio__note-text {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
 .portfolio__item{
     position: relative;
     border-radius: 10px;
@@ -113,4 +160,48 @@ display: flex;
     font-size: var(--h2-font-size);
     letter-spacing: 2px;
     margin-bottom: 24px;
+}
+
+/* Responsive styles for portfolio note */
+@media screen and (max-width: 768px) {
+    .portfolio__note-content {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .portfolio__note-icon {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+    
+    .portfolio__note-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .portfolio__note-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .portfolio__note {
+        margin-bottom: 2rem;
+    }
+    
+    .portfolio__note-content {
+        padding: 1.25rem;
+        border-left-width: 3px;
+    }
+    
+    .portfolio__note-title {
+        font-size: 1rem;
+    }
+    
+    .portfolio__note-text {
+        font-size: 0.85rem;
+    }
 }
