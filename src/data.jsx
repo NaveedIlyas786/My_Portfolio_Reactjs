@@ -224,8 +224,8 @@ export const portfolio = [
     title: 'Pixora AI Photo Editor',
     short:
       'AI photo editor with Google OAuth, usage tracking, ImageKit transforms, and Stripe billing.',
-    deploylink: '',
-    comingSoon: true,
+    deploylink: 'https://pixora-ai-photo-editor.vercel.app/',
+    comingSoon: false,
     stack: ['Next.js', 'TypeScript', 'Prisma', 'MongoDB', 'Stripe', 'ImageKit', 'NextAuth'],
     bullets: [
       'Built an AI photo editor with Next.js, Google OAuth, and Prisma/MongoDB usage tracking.',
@@ -236,7 +236,7 @@ export const portfolio = [
       detail(<FiFileText />, 'Project : ', 'Pixora AI Photo Editor'),
       detail(<FiUser />, 'Company : ', 'Tekxai'),
       detail(<FaCode />, 'Stack : ', 'Next.js, TypeScript, Prisma, Stripe'),
-      detail(<FiExternalLink />, 'Preview : ', 'Demo link coming soon'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://pixora-ai-photo-editor.vercel.app/'),
     ],
   },
   {
