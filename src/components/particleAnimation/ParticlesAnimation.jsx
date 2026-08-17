@@ -1,26 +1,24 @@
-import React from 'react'
+import { useCallback } from 'react'
 import './ParticlesAnimation.css'
 import Particles from 'react-tsparticles'
-import { loadFull } from 'tsparticles'
-import { useCallback } from 'react'
 
 const ParticlesAnimation = ({
+  id = 'tsparticles',
   numberOfCircles,
   CircleSizeMin,
   CircleSizeMax,
 }) => {
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine)
+    const { loadSlim } = await import('tsparticles-slim')
+    await loadSlim(engine)
   }, [])
 
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log('containerParticles: ', container)
-  })
+  const particlesLoaded = useCallback(async () => {}, [])
 
   return (
     <Particles
       className='myparticles'
-      id='tsparticles'
+      id={id}
       init={particlesInit}
       loaded={particlesLoaded}
       options={{

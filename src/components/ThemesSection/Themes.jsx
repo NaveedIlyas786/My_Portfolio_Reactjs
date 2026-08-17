@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { themes } from "../../data";
 import ThemeItem from "./ThemeItem";
-import { FaCog } from "react-icons/fa";
-import {MdOutlineColorLens} from "react-icons/md";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { BsSun, BsMoon } from "react-icons/bs";
 import "./themes.css";
@@ -16,7 +14,7 @@ const getStorageColor=()=>{
   return color;
 }
 const getStorageTheme=()=>{
-  let theme='lighttheme';
+  let theme='darktheme';
   if(localStorage.getItem('theme')){
     theme=localStorage.getItem('theme')
   }
@@ -24,8 +22,6 @@ const getStorageTheme=()=>{
 }
 
 const Themes = () => {
-  let mycolor='hsl(252, 35%, 51%)';
-  let mytheme='lighttheme';
   const [showSwitcher, setShowSwitcher] = useState(false);
   const [color, setColor] = useState(getStorageColor());
   const [theme, setTheme] = useState(getStorageTheme);

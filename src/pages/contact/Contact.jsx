@@ -1,194 +1,160 @@
-import React, { useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { motion } from 'framer-motion'
+import { FaEnvelopeOpen, FaPhoneSquareAlt, FaLinkedinIn } from 'react-icons/fa'
+import { FiSend } from 'react-icons/fi'
+import { BsGithub } from 'react-icons/bs'
+import ParticlesAnimation from '../../components/particleAnimation/ParticlesAnimation'
+import PageWrapper from '../../components/PageWrapper'
+import './contact.css'
 
-import {
-  FaEnvelope,
-  FaPhoneSquareAlt,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-  FaDribbble,
-  FaEnvelopeOpen,
-  FaLinkedinIn,
-} from "react-icons/fa";
-import { FiSend } from "react-icons/fi";
-import { BsGithub } from "react-icons/bs";
-import "./contact.css";
-import ParticlesAnimation from "../../components/particleAnimation/ParticlesAnimation";
-import AOS from 'aos';
-import "aos/dist/aos.css";
+const highlights = ['Frontend roles', 'React / Next.js products', 'Multi-role dashboards', 'Contract collaborations']
 
 const Contact = () => {
-  const [numberOfCircles, setNumberOfCircles] = useState();
+  const form = useRef()
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleNumberOfCirclesChange = (event) => {
-    setNumberOfCircles(Number(event.target.value));
-  };
+  const sendEmail = (event) => {
+    event.preventDefault()
+    setIsLoading(true)
 
-  useEffect(() => {
-    const newNumberOfCircles = 25; // Set the desired number of circles
-    handleNumberOfCirclesChange({ target: { value: newNumberOfCircles } });
-  }, []);
-
-  window.onload = () => {
-    const newNumberOfCircles = 25; // Set the desired number of circles
-    handleNumberOfCirclesChange({ target: { value: newNumberOfCircles } });
-  };
-
-  const form = useRef();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    emailjs.sendForm('service_28lq1bj', 'template_werla75', form.current, 'ZoeGcyZKrJpkFAzfd')
-    .then((result) => {
-      setIsLoading(false);
-      e.target.reset();
-      toast.success('Message sent successfully! Thank you for reaching out. I will get back to you soon!', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "colored",
-      });
-      console.log(result.text);
-    }, (error) => {
-      setIsLoading(false);
-      toast.error('Oops! Something went wrong. Please try again or contact me directly at naveedilyas321@gmail.com', {
-        position: "top-right",
-        autoClose: 6000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "colored",
-      });
-      console.log(error.text);
-    });
-  };
-
-
-  //! For AOS page scrolling Aimation ↴↴
-  useEffect(()=>{
-    AOS.init({duration:2000})
-  },[])
+    emailjs
+      .sendForm('service_28lq1bj', 'template_werla75', form.current, 'ZoeGcyZKrJpkFAzfd')
+      .then(() => {
+        setIsLoading(false)
+        event.target.reset()
+        toast.success('Message sent. I will get back to you soon.', {
+          position: 'top-right',
+          autoClose: 5000,
+          theme: 'colored',
+        })
+      })
+      .catch(() => {
+        setIsLoading(false)
+        toast.error('Something went wrong. Email me directly at naveedilyas115@gmail.com', {
+          position: 'top-right',
+          autoClose: 6000,
+          theme: 'colored',
+        })
+      })
+  }
 
   return (
-    <section className="contact section">
-      <ParticlesAnimation numberOfCircles={numberOfCircles} />
+    <PageWrapper
+      className='contact'
+      kicker='Contact'
+      title='Get In'
+      accent='Touch'
+      subtitle='Open to frontend roles and product collaborations. If you need a React / Next.js engineer who can own multi-role workflows, I would like to hear from you.'
+    >
+      <ParticlesAnimation id='tsparticles-contact' numberOfCircles={16} CircleSizeMin={1} CircleSizeMax={3} />
       <ToastContainer />
 
-      <h2 className="section__title">
-        Get In <span>Touch</span>
-      </h2>
-      <div className="contact__container container grid" data-aos="fade-up">
-        <div className="contact__data">
-          <h3 className="contact__title" data-aos="fade-right">Don't be Shy !</h3>
-          <p className="contact__description" data-aos="fade-right">
-          Feel free to get in touch with me using the given contacts. As an entry-level, I have the confidence to work effectively with React JS.
+      <div className='contact__container grid'>
+        <motion.div className='contact__data glass-panel' initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+          <span className='home__badge contact__badge'>Usually replies within 24 hours</span>
+          <h3 className='contact__title'>Let&apos;s work together</h3>
+          <p className='contact__description'>
+            Send a note about the role, product, or collaboration. I am especially interested in
+            production frontend work with TypeScript, React, and Next.js.
           </p>
-          <div className="contact__info">
-            <div className="info__item" data-aos="fade-right">
-              <FaEnvelopeOpen className="info__icon" />
-              <div>
-                <span className="info__title">Mail me</span>
-                <h4 className="info__desc">naveedilyas321@gmail.com</h4>
-              </div>
-            </div>
-            <div className="info__item" data-aos="fade-up">
-              <FaPhoneSquareAlt className="info__icon" />
-              <div>
-                <span className="info__title">Call / Watsapp</span>
-                <h4 className="info__desc">0092 3034793698</h4>
-              </div>
-            </div>
+          <div className='contact__chips'>
+            {highlights.map((item) => (
+              <span className='ui-chip' key={item}>
+                {item}
+              </span>
+            ))}
           </div>
-          <div className="contact__socials">
-            <a href="https://web.facebook.com/naveedilyas2?_rdc=1&_rdr" target="_blank" className="contact__social-link" data-aos="fade-up">
-              <FaFacebookF />
+          <div className='contact__info'>
+            <a className='info__item' href='mailto:naveedilyas115@gmail.com'>
+              <FaEnvelopeOpen className='info__icon' />
+              <div>
+                <span className='info__title'>Mail me</span>
+                <h4 className='info__desc'>naveedilyas115@gmail.com</h4>
+              </div>
             </a>
-            <a href="https://www.linkedin.com/in/naveed-ilyas-222679350/" target="_blank" className="contact__social-link" data-aos="fade-up">
+            <a className='info__item' href='tel:+923034793698'>
+              <FaPhoneSquareAlt className='info__icon' />
+              <div>
+                <span className='info__title'>Call / WhatsApp</span>
+                <h4 className='info__desc'>+92 303 4793698</h4>
+              </div>
+            </a>
+          </div>
+          <div className='contact__socials'>
+            <a
+              href='https://www.linkedin.com/in/naveed-ilyas-222679350/'
+              target='_blank'
+              rel='noreferrer'
+              className='contact__social-link'
+              aria-label='LinkedIn'
+            >
               <FaLinkedinIn />
             </a>
-            <a href="https://www.youtube.com/channel/UCZXWV9IFXyzoN37TegrEquA" target="_blank" className="contact__social-link" data-aos="fade-up">
-              <FaYoutube />
-            </a>
-            <a href="https://github.com/NaveedIlyas786" target="_blank" className="contact__social-link" data-aos="fade-down">
+            <a
+              href='https://github.com/NaveedIlyas786'
+              target='_blank'
+              rel='noreferrer'
+              className='contact__social-link'
+              aria-label='GitHub'
+            >
               <BsGithub size={17} />
             </a>
           </div>
-        </div>
-        {/* //! Contact Form to send Email */}
-        <form className="contact__form" ref={form} onSubmit={sendEmail}>
-          <div className="form__input-group">
-            <div className="form__input-div" data-aos="fade-left">
-              <input
-                required
-                type="text"
-                placeholder="Your Name"
-                name="name"
-                className="form__control" 
-              />
+        </motion.div>
+        <motion.form
+          className='contact__form'
+          ref={form}
+          onSubmit={sendEmail}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08 }}
+        >
+          <div className='form__input-group'>
+            <div className='form__input-div'>
+              <label htmlFor='name'>Name</label>
+              <input required id='name' type='text' placeholder='Your name' name='name' className='form__control' />
             </div>
-            <div className="form__input-div" data-aos="fade-left">
-              <input
-                required
-                type="email"
-                placeholder="Your Email"
-                name="email"
-                className="form__control"
-              />
+            <div className='form__input-div'>
+              <label htmlFor='email'>Email</label>
+              <input required id='email' type='email' placeholder='you@email.com' name='email' className='form__control' />
             </div>
-            
           </div>
-          <div className="form__input-div" data-aos="fade-up">
-            <input
-              required
-              type="text"
-              placeholder="Subject"
-              name="subject"
-              className="form__control"
-            />
+          <div className='form__input-div'>
+            <label htmlFor='subject'>Subject</label>
+            <input required id='subject' type='text' placeholder='Role, product, or collaboration' name='subject' className='form__control' />
           </div>
-          <div className="form__input-div" data-aos="fade-right">
+          <div className='form__input-div'>
+            <label htmlFor='message'>Message</label>
             <textarea
               required
-              placeholder="Your Message"
-              name="message"
-              className="form__control textarea"
+              id='message'
+              placeholder='A short note about what you are building'
+              name='message'
+              className='form__control textarea'
             ></textarea>
           </div>
-
-          <button
-            className="button"
-            type="submit"
-            value="Send"
-            disabled={isLoading}
-          >
+          <button className='button' type='submit' disabled={isLoading}>
             {isLoading ? (
               <>
-                <span className="spinner"></span>
+                <span className='spinner'></span>
                 Sending...
               </>
             ) : (
               <>
                 Send Message
-                <span className="button__icon contact__button-icon">
+                <span className='button__icon contact__button-icon'>
                   <FiSend />
                 </span>
               </>
             )}
           </button>
-        </form>
+        </motion.form>
       </div>
-    </section>
-  );
-};
+    </PageWrapper>
+  )
+}
 
-export default Contact;
+export default Contact

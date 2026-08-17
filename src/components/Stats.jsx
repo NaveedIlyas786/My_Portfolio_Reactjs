@@ -1,26 +1,23 @@
-import React from 'react'
 import { stats } from '../data'
-import parse from 'html-react-parser' //! We installed "html-react-parser" to implement parse an Html element means e:g:: tto implement break points on html without it 'break tag' (<br/>) will not work
-import ParticlesAnimation from './particleAnimation/ParticlesAnimation'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { useEffect } from 'react'
-const Stats = () => {
-  //! For AOS page scrolling Aimation ↴↴
-  useEffect(() => {
-    AOS.init({ duration: 2000 })
-  }, [])
+import parse from 'html-react-parser'
+import { motion } from 'framer-motion'
 
+const Stats = () => {
   return (
     <>
-      {stats.map(({ title, no }, index) => {
-        return (
-          <li className='stats__box' key={index} data-aos='fade-left'>
-            <h3 className='stats__no'>{no}</h3>
-            <p className='stats__title'>{parse(title)}</p>
-          </li>
-        )
-      })}
+      {stats.map(({ title, no }, index) => (
+        <motion.li
+          className='stats__box'
+          key={title}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.08 }}
+        >
+          <h3 className='stats__no'>{no}</h3>
+          <p className='stats__title'>{parse(title)}</p>
+        </motion.li>
+      ))}
     </>
   )
 }

@@ -1,0 +1,196 @@
+.ui-dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.ui-dialog-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(240, 12%, 4%, 0.62);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.ui-dialog-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(820px, 100%);
+  max-height: min(88vh, 900px);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--body-color) 92%, var(--container-color));
+  border: 1px solid color-mix(in srgb, var(--first-color) 22%, var(--border-color));
+  border-radius: 22px;
+  box-shadow: 0 30px 80px color-mix(in srgb, var(--first-color) 18%, hsla(240, 20%, 6%, 0.35));
+}
+
+.ui-dialog-body {
+  overflow: auto;
+  padding: 58px 22px 22px;
+  min-height: 0;
+}
+
+.ui-dialog-media-wrap {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  border: 1px solid color-mix(in srgb, var(--first-color) 18%, var(--border-color));
+  background: color-mix(in srgb, var(--container-color) 88%, transparent);
+  box-shadow: inset 20px 18px 42px rgba(0, 0, 0, 0.14);
+}
+
+.ui-dialog-media-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 95% at 0% 0%,
+    rgba(0, 0, 0, 0.32) 0%,
+    rgba(0, 0, 0, 0.14) 34%,
+    transparent 64%
+  );
+}
+
+.ui-dialog-media {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ui-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--text-white);
+  background: var(--first-color);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--first-color) 34%, transparent);
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ui-dialog-close:hover {
+  transform: scale(1.05);
+  background: color-mix(in srgb, var(--first-color) 78%, black);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--first-color) 42%, transparent);
+}
+
+.ui-dialog-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ui-dialog-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 10px;
+  padding-right: 42px;
+}
+
+.ui-dialog-short {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.ui-dialog-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.ui-dialog-list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  line-height: 1.65;
+}
+
+.ui-dialog-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--first-color);
+}
+
+.ui-dialog-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 16px;
+  margin-bottom: 18px;
+}
+
+.ui-dialog-meta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+}
+
+.ui-dialog-meta-item span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ui-dialog-link {
+  color: var(--first-color);
+  font-weight: 650;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+.ui-dialog-link:hover {
+  text-decoration: underline;
+}
+
+.ui-dialog-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.ui-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .ui-dialog-content {
+    border-radius: 16px;
+  }
+
+  .ui-dialog-body {
+    padding: 52px 16px 16px;
+  }
+
+  .ui-dialog-meta {
+    grid-template-columns: 1fr;
+  }
+}

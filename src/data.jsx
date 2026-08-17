@@ -9,6 +9,10 @@ import {
 } from 'react-icons/fa'
 import { FiFileText, FiUser, FiExternalLink } from 'react-icons/fi'
 
+import Pixora from './assets/pixora.png'
+import CaseReady from './assets/caseready.png'
+import Loadout from './assets/loadout.png'
+import DealLink from './assets/deallink.png'
 import Work1 from './assets/1.png'
 import Work2 from './assets/youtube.png'
 import Work3 from './assets/HomePortfolio.png'
@@ -32,21 +36,18 @@ export const links = [
     icon: <FaHome className='nav__icon' />,
     path: '/',
   },
-
   {
     id: 2,
     name: 'About',
     icon: <FaUser className='nav__icon' />,
     path: '/about',
   },
-
   {
     id: 3,
     name: 'Portfolio',
     icon: <FaFolderOpen className='nav__icon' />,
     path: '/portfolio',
   },
-
   {
     id: 4,
     name: 'Contact',
@@ -58,50 +59,30 @@ export const links = [
 export const personalInfo = [
   {
     id: 1,
-    title: 'First Name : ',
-    description: 'Naveed',
+    title: 'Full Name',
+    description: 'Naveed Ilyas',
   },
-
   {
     id: 2,
-    title: 'Last Name : ',
-    description: 'Ilyas',
+    title: 'Experience',
+    description: '3+ Years',
   },
-
   {
     id: 3,
-    title: 'Age : ',
-    description: '26 Years',
+    title: 'Address',
+    description: 'Lahore, Pakistan',
   },
-
   {
     id: 4,
-    title: 'Nationality : ',
-    description: 'Pakistani',
+    title: 'Phone',
+    description: '+92 303 4793698',
+    href: 'tel:+923034793698',
   },
-
   {
     id: 5,
-    title: 'Address : ',
-    description: 'Lahore, Punjab Pakistan',
-  },
-
-  {
-    id: 6,
-    title: 'Phone : ',
-    description: '0092-3034793698',
-  },
-
-  {
-    id: 7,
-    title: 'Email : ',
-    description: 'naveedilyas321@gmail.com',
-  },
-
-  {
-    id: 8,
-    title: 'Langages : ',
-    description: 'English, Urdu, Punjabi',
+    title: 'Email',
+    description: 'naveedilyas115@gmail.com',
+    href: 'mailto:naveedilyas115@gmail.com',
   },
 ]
 
@@ -109,25 +90,72 @@ export const stats = [
   {
     id: 1,
     no: '3+',
-    title: 'Years of <br /> Experience', //!we will install "html-react-parser" in the 'Stats.jsx' to implement break tag (<br/>)
+    title: 'Years of <br /> Experience',
   },
-
   {
     id: 2,
-    no: '15+',
-    title: 'Completed <br /> Projects',
+    no: '10',
+    title: 'Live <br /> Projects',
   },
-
   {
     id: 3,
-    no: '10+',
-    title: 'Happy <br /> Customers',
+    no: '2',
+    title: 'Companies <br /> Shipped With',
   },
-
   {
     id: 4,
-    no: '5+',
-    title: 'Awards <br /> Won',
+    no: '4',
+    title: 'Product Teams <br /> Shipped With',
+  },
+]
+
+export const skillGroups = [
+  {
+    id: 1,
+    title: 'Languages',
+    items: ['JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3'],
+  },
+  {
+    id: 2,
+    title: 'Frontend',
+    items: [
+      'React.js',
+      'Next.js',
+      'Redux Toolkit',
+      'Zustand',
+      'TanStack Query',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'Material UI',
+      'Framer Motion',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Data & APIs',
+    items: ['REST APIs', 'Axios', 'Socket.IO', 'WebSockets'],
+  },
+  {
+    id: 4,
+    title: 'Backend & Data',
+    items: ['Node.js', 'Express.js', 'MongoDB', 'MySQL', 'Prisma'],
+  },
+  {
+    id: 5,
+    title: 'Tools',
+    items: ['Git', 'GitHub', 'Postman', 'Vercel'],
+  },
+  {
+    id: 6,
+    title: 'Other',
+    items: [
+      'i18next (i18n / RTL)',
+      'Responsive Design',
+      'RBAC & Protected Routes',
+      'Performance Optimization',
+      'Code Splitting',
+      'Lazy Loading',
+    ],
   },
 ]
 
@@ -136,250 +164,249 @@ export const resume = [
     id: 1,
     category: 'experience',
     icon: <FaBriefcase />,
-    year: 'Feb 2024 - Present',
-    title: 'Senior React Developer <span> / Tech Lead </span>',
-    desc: 'Leading frontend development with advanced React.js, Next.js, TypeScript, and modern state management solutions. Architecting scalable applications and mentoring development teams.',
+    year: 'Jun 2025 – Present',
+    title: 'Frontend Engineer <span> Tekxai </span>',
+    desc: 'Owning frontend delivery for production React and Next.js products used by multi-role teams.',
+    points: [
+      'Ship feature work from UI implementation through API integration and release-ready polish.',
+      'Partner with design and backend on auth-aware routing, RBAC, and reliable client-side state.',
+      'Build reusable TypeScript components and consistent data-fetching with TanStack Query and Zustand.',
+      'Strengthen UX with responsive layouts, loading/error states, and performance-minded rendering.',
+    ],
   },
-
   {
     id: 2,
     category: 'experience',
     icon: <FaBriefcase />,
-    year: 'August 2022 - Feb 2024',
-    title: 'React.js <span> Developer </span>',
-    desc: 'Developed enterprise-level web applications using React.js, Redux Toolkit, and modern frontend technologies. Collaborated with cross-functional teams to deliver high-quality solutions.',
+    year: 'Jan 2023 – Jun 2025',
+    title: 'Frontend Developer <span> BuildAi360 </span>',
+    desc: 'Built and iterated on React applications for operational dashboards and business workflows.',
+    points: [
+      'Translated product requirements into reusable components with Redux Toolkit.',
+      'Integrated internal and third-party APIs, including Socket.IO for live updates.',
+      'Improved performance by reducing unnecessary re-renders on data-heavy views.',
+    ],
   },
-
   {
     id: 3,
-    category: 'experience',
-    icon: <FaBriefcase />,
-    year: 'Feb 2022 - August 2022',
-    title: 'Frontend Developer <span> / Trainee </span>',
-    desc: 'Started professional journey in web development, mastering HTML, CSS, JavaScript, and React.js fundamentals through hands-on projects and continuous learning.',
-  },
-
-  {
-    id: 4,
     category: 'education',
     icon: <FaGraduationCap />,
-    year: '2022',
-    title:
-      'Bachelor in Computer Science <span> <br/> ( Comsats University ) </span>',
-    desc: 'I passed my degree in Computer Science from Comsats University Islamabad, Vehari Campus, Punjab Pakistan.',
+    year: 'Feb 2018 – Feb 2022',
+    title: 'BS Computer Science <span> COMSATS University </span>',
+    desc: 'Bachelor of Science in Computer Science from COMSATS University Islamabad, Vehari Campus. CGPA 3.24.',
   },
-
   {
-    id: 5,
+    id: 4,
     category: 'education',
     icon: <FaGraduationCap />,
     year: '2017',
-    title: 'Intermediate <span> ( Superior College ) </span>',
-    desc: 'I passed my Intermediate Level from Superior College, Vehari Punjab Pakistan.',
+    title: 'Intermediate <span> Superior College </span>',
+    desc: 'Completed Intermediate from Superior College, Vehari, Punjab, Pakistan. Grade: A.',
   },
-
   {
-    id: 6,
+    id: 5,
     category: 'education',
     icon: <FaGraduationCap />,
     year: '2015',
-    title: 'Matric. <span> Model High School Vehari </span>',
-    desc: 'I passed my Matriculation Level from Model High School, Vehari Punjab Pakistan.',
+    title: 'Matriculation <span> Model High School Vehari </span>',
+    desc: 'Completed Matriculation from Model High School, Vehari, Punjab, Pakistan. Grade: A+.',
   },
 ]
 
-export const skills = [
-  {
-    id: 1,
-    title: 'Html',
-    percentage: '95',
-  },
-  {
-    id: 2,
-    title: 'CSS',
-    percentage: '90',
-  },
-
-  {
-    id: 3,
-    title: 'Bootstrap',
-    percentage: '90',
-  },
-
-  {
-    id: 4,
-    title: 'Tailwind CSS',
-    percentage: '92',
-  },
-
-  {
-    id: 5,
-    title: 'Next.js',
-    percentage: '85',
-  },
-
-  {
-    id: 6,
-    title: 'Javascript',
-    percentage: '92',
-  },
-
-  {
-    id: 7,
-    title: 'React.js',
-    percentage: '95',
-  },
-  {
-    id: 8,
-    title: 'Redux Toolkit',
-    percentage: '90',
-  },
-  {
-    id: 9,
-    title: 'Git / Github',
-    percentage: '88',
-  },
-  {
-    id: 10,
-    title: 'Shadcn',
-    percentage: '85',
-  },
-  {
-    id: 11,
-    title: 'Problem Solving',
-    percentage: '90',
-  },
-  {
-    id: 12,
-    title: 'TypeScript',
-    percentage: '80',
-  },
-]
+const detail = (icon, title, desc) => ({ icon, title, desc })
 
 export const portfolio = [
   {
     id: 1,
-    img: Work1,
-    deploylink:
-      'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
-    title: ` Movie Website (React JS) "SCSS/SASS" & Redux Toolkit`,
-
+    featured: true,
+    img: Pixora,
+    company: 'Tekxai',
+    title: 'Pixora AI Photo Editor',
+    short:
+      'AI photo editor with Google OAuth, usage tracking, ImageKit transforms, and Stripe billing.',
+    deploylink: '',
+    comingSoon: true,
+    stack: ['Next.js', 'TypeScript', 'Prisma', 'MongoDB', 'Stripe', 'ImageKit', 'NextAuth'],
+    bullets: [
+      'Built an AI photo editor with Next.js, Google OAuth, and Prisma/MongoDB usage tracking.',
+      'Integrated ImageKit for signed uploads and AI transforms with free-plan usage limits.',
+      'Added Stripe Checkout and webhooks for Free/Pro plans and quota enforcement.',
+    ],
     details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'Movies Visiting Website',
-      },
-      {
-        icon: <FiUser />,
-        title: 'APi : ',
-        desc: 'TMDB',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'React JS',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
-      },
+      detail(<FiFileText />, 'Project : ', 'Pixora AI Photo Editor'),
+      detail(<FiUser />, 'Company : ', 'Tekxai'),
+      detail(<FaCode />, 'Stack : ', 'Next.js, TypeScript, Prisma, Stripe'),
+      detail(<FiExternalLink />, 'Preview : ', 'Demo link coming soon'),
     ],
   },
-
   {
     id: 2,
-    img: Work2,
-    deploylink:
-      'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
-    title: 'Youtube Clone using Context_APi "Tailwind CSS"',
-
+    featured: true,
+    img: CaseReady,
+    company: 'Tekxai · ForthRight AI',
+    title: 'ForthRight AI CaseReady',
+    short:
+      'Multi-role Texas SpEd platform for IEP scoring, Needs Review, and PEIMS-ready export.',
+    deploylink: 'https://app.spedinsight.com/',
+    comingSoon: false,
+    stack: ['Next.js', 'TypeScript', 'TanStack Query', 'Zustand', 'WebSockets', 'Tailwind'],
+    bullets: [
+      'Owned frontend delivery for a multi-role Texas SpEd platform with RBAC and protected routing.',
+      'Built IEP workflows including upload, AI extraction review, HB 2 intensity scoring, and TWEDS export gates.',
+      'Designed data flows with TanStack Query and WebSockets so extract/score pipelines stay in sync.',
+    ],
     details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'Youtube Clone',
-      },
-      {
-        icon: <FiUser />,
-        title: 'Api : ',
-        desc: '"Rapid Api"',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'React JS',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
-      },
+      detail(<FiFileText />, 'Project : ', 'SpEd Insight / CaseReady'),
+      detail(<FiUser />, 'Company : ', 'Tekxai · ForthRight AI'),
+      detail(<FaCode />, 'Stack : ', 'Next.js, TanStack Query, Zustand'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://app.spedinsight.com/'),
     ],
   },
-
   {
     id: 3,
-    img: Work3,
-    deploylink: 'https://my-portfolio-reactjs-opal.vercel.app/',
-    title: 'My Portfolio (React JS)',
-
+    featured: true,
+    img: Loadout,
+    company: 'Tekxai',
+    title: 'Loadout Marketplace',
+    short:
+      'Peer-to-peer marketplace with role-based access, listings, chat, and live notifications.',
+    deploylink: 'https://loadoutp2p.com/',
+    comingSoon: false,
+    stack: ['React.js', 'TypeScript', 'Vite', 'TanStack Query', 'Zustand', 'Socket.IO'],
+    bullets: [
+      'Delivered a multi-role marketplace with separate user and admin experiences and protected routes.',
+      'Implemented listing creation, category browsing, saved products, seller profiles, and ratings.',
+      'Integrated REST APIs with Socket.IO chat and notifications across sessions.',
+    ],
     details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'Portfolio',
-      },
-      {
-        icon: <FiUser />,
-        title: 'Client : ',
-        desc: 'Self',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'React JS',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://my-portfolio-reactjs-opal.vercel.app/',
-      },
+      detail(<FiFileText />, 'Project : ', 'Loadout P2P Marketplace'),
+      detail(<FiUser />, 'Company : ', 'Tekxai'),
+      detail(<FaCode />, 'Stack : ', 'React, TypeScript, Socket.IO'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://loadoutp2p.com/'),
     ],
   },
-
   {
     id: 4,
-    img: Work4,
-    deploylink: 'https://www.cmsdms.com/',
-    title: 'Construction Management System (Protected)',
-
+    featured: true,
+    img: DealLink,
+    company: 'Tekxai',
+    title: 'DealLink Bilingual App',
+    short:
+      'English/Arabic portal with full RTL support and shared UI patterns across locales.',
+    deploylink: 'https://deallinkapp.com/',
+    comingSoon: false,
+    stack: ['React.js', 'Redux Toolkit', 'Tailwind CSS', 'i18next'],
+    bullets: [
+      'Built a bilingual English/Arabic portal with full RTL support across screen sizes.',
+      'Structured reusable UI and state patterns so language switching never broke layout or forms.',
+    ],
     details: [
-      {
-        icon: <FiFileText />,
-        title: 'Project : ',
-        desc: 'Construction Management System',
-      },
-      {
-        icon: <FiUser />,
-        title: 'Client : ',
-        desc: 'John Tylor',
-      },
-      {
-        icon: <FaCode />,
-        title: 'Language : ',
-        desc: 'React JS',
-      },
-      {
-        icon: <FiExternalLink />,
-        title: 'Preview : ',
-        desc: 'https://www.cmsdms.com/',
-      },
+      detail(<FiFileText />, 'Project : ', 'DealLink Bilingual Portal'),
+      detail(<FiUser />, 'Company : ', 'Tekxai'),
+      detail(<FaCode />, 'Stack : ', 'React, Redux Toolkit, i18next'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://deallinkapp.com/'),
+    ],
+  },
+  {
+    id: 5,
+    featured: false,
+    img: Work1,
+    company: 'Personal',
+    title: 'Movix Streaming Web App',
+    short:
+      'Movie discovery app powered by TMDB, with search, details, and Redux Toolkit state.',
+    deploylink:
+      'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
+    comingSoon: false,
+    stack: ['React.js', 'Redux Toolkit', 'SCSS'],
+    bullets: [
+      'Built a movie browsing experience with TMDB search, details, and category views.',
+      'Managed client state with Redux Toolkit and styled the UI with SCSS/SASS.',
+    ],
+    details: [
+      detail(<FiFileText />, 'Project : ', 'Movix Streaming Web App'),
+      detail(<FiUser />, 'API : ', 'TMDB'),
+      detail(<FaCode />, 'Stack : ', 'React JS, Redux Toolkit, SCSS'),
+      detail(
+        <FiExternalLink />,
+        'Preview : ',
+        'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/'
+      ),
+    ],
+  },
+  {
+    id: 6,
+    featured: false,
+    img: Work2,
+    company: 'Personal',
+    title: 'YouTube App',
+    short:
+      'YouTube-style video browsing UI with Context API, RapidAPI, and Tailwind CSS.',
+    deploylink:
+      'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
+    comingSoon: false,
+    stack: ['React.js', 'Context API', 'Tailwind CSS', 'RapidAPI'],
+    bullets: [
+      'Recreated core YouTube browsing patterns with a responsive Tailwind layout.',
+      'Fetched video data through RapidAPI and shared UI state with Context API.',
+    ],
+    details: [
+      detail(<FiFileText />, 'Project : ', 'YouTube App'),
+      detail(<FiUser />, 'API : ', 'RapidAPI'),
+      detail(<FaCode />, 'Stack : ', 'React JS, Tailwind CSS'),
+      detail(
+        <FiExternalLink />,
+        'Preview : ',
+        'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/'
+      ),
+    ],
+  },
+  {
+    id: 7,
+    featured: false,
+    img: Work4,
+    company: 'BuildAi360',
+    title: 'Construction Management System',
+    short:
+      'Dashboards, reporting views, and data visualization for project progress tracking.',
+    deploylink: 'https://www.cmsdms.com/',
+    comingSoon: false,
+    stack: ['React.js', 'Redux Toolkit', 'REST APIs'],
+    bullets: [
+      'Developed dashboards and reporting surfaces used to monitor project progress.',
+      'Integrated REST APIs and reduced unnecessary re-renders on data-heavy screens.',
+    ],
+    details: [
+      detail(<FiFileText />, 'Project : ', 'Construction Management System'),
+      detail(<FiUser />, 'Company : ', 'BuildAi360'),
+      detail(<FaCode />, 'Stack : ', 'React JS, Redux Toolkit'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://www.cmsdms.com/'),
+    ],
+  },
+  {
+    id: 8,
+    featured: false,
+    img: Work3,
+    company: 'Personal',
+    title: 'Personal Portfolio',
+    short:
+      'This site is a motion-rich React portfolio built to present production work clearly.',
+    deploylink: 'https://my-portfolio-reactjs-opal.vercel.app/',
+    comingSoon: false,
+    stack: ['React.js', 'Framer Motion', 'Tailwind CSS', 'Vite'],
+    bullets: [
+      'Designed a recruiter-friendly layout with case-study cards and animated page transitions.',
+      'Kept theme switching, dark mode, and a focused project narrative aligned with the resume.',
+    ],
+    details: [
+      detail(<FiFileText />, 'Project : ', 'Portfolio'),
+      detail(<FiUser />, 'Client : ', 'Self'),
+      detail(<FaCode />, 'Stack : ', 'React JS, Framer Motion, Tailwind CSS'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://my-portfolio-reactjs-opal.vercel.app/'),
     ],
   },
 ]
-// =============Colors================
+
 const darkpurple = 'hsl(252, 35%, 51%)'
 const lightpurple = 'hsl(271, 76%, 53%)'
 const red = 'hsl(4, 93%, 54%)'
@@ -392,63 +419,14 @@ const darkgreen = 'hsl(88, 65%, 43%)'
 const yellow = 'hsl(42, 100%, 50%)'
 
 export const themes = [
-  {
-    id: 1,
-    img: Theme1,
-    color: darkpurple,
-  },
-
-  {
-    id: 2,
-    img: Theme2,
-    color: red,
-  },
-
-  {
-    id: 3,
-    img: Theme3,
-    color: lightpurple,
-  },
-
-  {
-    id: 4,
-    img: Theme4,
-    color: blue,
-  },
-
-  {
-    id: 5,
-    img: Theme5,
-    color: brown,
-  },
-
-  {
-    id: 6,
-    img: Theme6,
-    color: pink,
-  },
-
-  {
-    id: 7,
-    img: Theme7,
-    color: lightgreen,
-  },
-
-  {
-    id: 8,
-    img: Theme8,
-    color: orange,
-  },
-
-  {
-    id: 9,
-    img: Theme9,
-    color: darkgreen,
-  },
-
-  {
-    id: 10,
-    img: Theme10,
-    color: yellow,
-  },
+  { id: 1, img: Theme1, color: darkpurple },
+  { id: 2, img: Theme2, color: red },
+  { id: 3, img: Theme3, color: lightpurple },
+  { id: 4, img: Theme4, color: blue },
+  { id: 5, img: Theme5, color: brown },
+  { id: 6, img: Theme6, color: pink },
+  { id: 7, img: Theme7, color: lightgreen },
+  { id: 8, img: Theme8, color: orange },
+  { id: 9, img: Theme9, color: darkgreen },
+  { id: 10, img: Theme10, color: yellow },
 ]

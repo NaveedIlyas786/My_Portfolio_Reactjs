@@ -1,69 +1,72 @@
-import { useState, useEffect } from "react";
-import { portfolio } from "../../data";
-import PortfolioItem from "../../components/PortfolioItem";
-import "./portfolio.css";
-import ParticlesAnimation from "../../components/particleAnimation/ParticlesAnimation";
-import AOS from 'aos';
-import "aos/dist/aos.css";
+import { portfolio } from '../../data'
+import { motion } from 'framer-motion'
+import PortfolioItem from '../../components/PortfolioItem'
+import ParticlesAnimation from '../../components/particleAnimation/ParticlesAnimation'
+import PageWrapper from '../../components/PageWrapper'
+import './portfolio.css'
 
+const featured = portfolio.filter((item) => item.featured)
+const more = portfolio.filter((item) => !item.featured)
+
+const list = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.08 },
+  },
+}
+
+const card = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+  },
+}
 
 const Portfolio = () => {
-  const [numberOfCircles, setNumberOfCircles] = useState();
-
-  const handleNumberOfCirclesChange = (event) => {
-    setNumberOfCircles(Number(event.target.value));
-  };
-
-  useEffect(() => {
-    const newNumberOfCircles = 25; // Set the desired number of circles
-    handleNumberOfCirclesChange({ target: { value: newNumberOfCircles } });
-  }, []);
-
-  window.onload = () => {
-    const newNumberOfCircles = 25; // Set the desired number of circles
-    handleNumberOfCirclesChange({ target: { value: newNumberOfCircles } });
-  };
-
-
-  //! For AOS page scrolling Aimation ↴↴
-  useEffect(()=>{
-    AOS.init({duration:2000})
-  },[])
-
   return (
-    <section className="portfolio section" data-aos="fade-up">
-      <ParticlesAnimation numberOfCircles={numberOfCircles} />
+    <PageWrapper
+      className='portfolio'
+      kicker='Selected work'
+      title='Production'
+      accent='projects'
+      subtitle='Products shipped at Tekxai and BuildAi360, plus selected personal apps. Each card opens a short case study with stack and live link.'
+    >
+      <ParticlesAnimation id='tsparticles-portfolio' numberOfCircles={16} CircleSizeMin={1} CircleSizeMax={3} />
 
-      <h2 className="section__title" >
-        My <span>Portfolio</span>
-      </h2>
+      <motion.div className='portfolio__intro glass-panel' initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
+        <p className='text-sm leading-6 text-[var(--text-color)]'>
+          Featured live products first, then more builds below. Open any card for the stack, role,
+          and live preview.
+        </p>
+      </motion.div>
 
-      {/* Professional Note */}
-      <div className="portfolio__note" data-aos="fade-down">
-        <div className="portfolio__note-content">
-          <svg className="portfolio__note-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-          </svg>
-          <div>
-            <h3 className="portfolio__note-title">Professional Portfolio Showcase</h3>
-            <p className="portfolio__note-text">
-              Throughout my 3+ years of professional experience, I've developed numerous enterprise-level 
-              applications and client projects. Due to company confidentiality agreements and non-disclosure 
-              policies, many of these projects cannot be publicly showcased. The following represents a curated 
-              selection of personal and publicly available projects that demonstrate my technical expertise and 
-              development capabilities.
-            </p>
-          </div>
-        </div>
-      </div>
+      <motion.div className='project-grid' variants={list} initial='hidden' animate='show'>
+        {featured.map((item, index) => (
+          <motion.div key={item.id} className={index === 0 ? 'project-grid__hero' : undefined} variants={card}>
+            <PortfolioItem {...item} layout={index === 0 ? 'hero' : 'default'} index={index + 1} />
+          </motion.div>
+        ))}
+      </motion.div>
 
-      <div className="portfolio__container container grid" >
-        {portfolio.map((val) => {
-          return <PortfolioItem key={val.id} {...val} />;
-        })}
-      </div>
-    </section>
-  );
-};
+      <h3 className='portfolio__more-title'>More projects</h3>
+      <motion.div
+        className='project-grid'
+        variants={list}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: true, amount: 0.12 }}
+      >
+        {more.map((item, index) => (
+          <motion.div key={item.id} variants={card}>
+            <PortfolioItem {...item} index={featured.length + index + 1} />
+          </motion.div>
+        ))}
+      </motion.div>
+    </PageWrapper>
+  )
+}
 
-export default Portfolio;
+export default Portfolio

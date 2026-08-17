@@ -76,17 +76,23 @@ padding-block: 14px;
         z-index: 100;
         align-items: center;
     }
+    .nav__link{
+        box-shadow: var(--card-shadow);
+        backdrop-filter: blur(10px);
+    }
     .nav_item{
         margin-block: 20px;
     }
     .nav__link{
         padding: 0;
         border-bottom: none;
-        background-color: var(--container-color);
+        background-color: color-mix(in srgb, var(--container-color) 82%, transparent);
+        border: 1px solid color-mix(in srgb, var(--first-color) 16%, var(--border-color));
         width: 50px;
         height: 50px;
         border-radius: 50%;
         position: relative;
+        backdrop-filter: blur(12px);
     }
     .nav__name {
         position: absolute;
@@ -110,6 +116,7 @@ padding-block: 14px;
     }
     .nav__link:hover, .active-nav{
         background-color: var(--first-color);
+        box-shadow: 0 10px 24px color-mix(in srgb, var(--first-color) 32%, transparent);
     }
     .nav__link:hover .nav__icon, .active-nav .nav__icon{
         color: var(--text-white);
