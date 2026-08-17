@@ -1,6 +1,5 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './ParticlesAnimation.css'
-import Particles from 'react-tsparticles'
 
 const ParticlesAnimation = ({
   id = 'tsparticles',
@@ -8,12 +7,30 @@ const ParticlesAnimation = ({
   CircleSizeMin,
   CircleSizeMax,
 }) => {
+  const [Particles, setParticles] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    import('react-tsparticles')
+      .then((mod) => {
+        if (!cancelled) setParticles(() => mod.default)
+      })
+      .catch(() => {})
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   const particlesInit = useCallback(async (engine) => {
     const { loadSlim } = await import('tsparticles-slim')
     await loadSlim(engine)
   }, [])
 
   const particlesLoaded = useCallback(async () => {}, [])
+
+  if (!Particles) return null
 
   return (
     <Particles
@@ -29,19 +46,12 @@ const ParticlesAnimation = ({
               enable: true,
               mode: 'repulse',
             },
-            // onClick: {
-            //   enable: true,
-            //   mode: "push",
-            // },
           },
           modes: {
             repulse: {
               distance: 180,
               duration: 0.3,
             },
-            // push:{
-            //   quantity:2
-            // }
           },
         },
         particles: {

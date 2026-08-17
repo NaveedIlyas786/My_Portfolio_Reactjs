@@ -7,12 +7,17 @@ function vendorChunk(id) {
   const pkg = id.split('node_modules/')[1]?.split('/')[0]
   if (!pkg) return
 
-  if (pkg.startsWith('tsparticles') || pkg === 'react-tsparticles' || pkg === 'react-particles') {
-    return 'vendor-particles'
-  }
   if (pkg === 'framer-motion') return 'vendor-motion'
   if (pkg === 'react-icons') return 'vendor-icons'
-  if (['react', 'react-dom', 'react-router', 'react-router-dom', 'scheduler'].includes(pkg)) {
+  if (
+    pkg === 'react' ||
+    pkg === 'react-dom' ||
+    pkg === 'react-router' ||
+    pkg === 'react-router-dom' ||
+    pkg === 'scheduler' ||
+    pkg === 'react-tsparticles' ||
+    pkg === 'react-particles'
+  ) {
     return 'vendor-react'
   }
 }
@@ -20,6 +25,9 @@ function vendorChunk(id) {
 export default defineConfig({
   plugins: [react()],
   build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+    },
     rollupOptions: {
       output: {
         manualChunks: vendorChunk,
