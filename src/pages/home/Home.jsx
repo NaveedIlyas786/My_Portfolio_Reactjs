@@ -129,8 +129,8 @@ const Home = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
             >
-              <strong>10</strong>
-              live projects
+              <span className='home__float-dot' />
+              Open to roles
             </motion.aside>
           </motion.div>
         </motion.div>
