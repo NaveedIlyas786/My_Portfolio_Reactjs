@@ -14,7 +14,7 @@
   gap: 1.6rem;
   width: 100%;
   margin: 0 auto;
-  padding: 5.25rem 0 1.5rem;
+  padding: 5.25rem 0 2rem;
   min-height: auto;
   position: relative;
   z-index: 1;
@@ -309,47 +309,6 @@
   transform: translateY(-2px);
 }
 
-.home-proof {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  margin: 0.4rem 0 0;
-}
-
-.home-proof__card {
-  position: relative;
-  padding: 18px 18px 16px;
-  display: grid;
-  gap: 4px;
-  overflow: hidden;
-}
-
-.home-proof__card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 16px;
-  right: 40%;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--first-color), transparent);
-}
-
-.home-proof__card strong {
-  font-family: var(--second-font);
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  line-height: 1;
-  color: var(--first-color);
-  letter-spacing: -0.04em;
-}
-
-.home-proof__card span {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
 .home-marquee {
   overflow: hidden;
   margin: 1.75rem -1.25rem 2.25rem;
@@ -613,10 +572,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .home-proof {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .home-highlights__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -631,20 +586,16 @@
 @media screen and (min-width: 1024px) {
   .home {
     grid-template-columns: minmax(400px, 0.95fr) minmax(0, 1.15fr);
-    grid-template-areas:
-      'stage content'
-      'proof proof';
     justify-items: start;
     align-items: center;
     align-content: start;
     gap: 2.4rem 4.5rem;
-    padding: 4.5rem 0 1.4rem;
+    padding: 4.5rem 0 2.25rem;
     width: 100%;
     max-width: none;
   }
 
   .home__stage {
-    grid-area: stage;
     width: min(440px, 100%);
   }
 
@@ -653,12 +604,7 @@
   }
 
   .home__content {
-    grid-area: content;
     max-width: 640px;
-  }
-
-  .home-proof {
-    grid-area: proof;
   }
 
   .home-marquee {

@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { FaEnvelopeOpen, FaPhoneSquareAlt, FaLinkedinIn } from 'react-icons/fa'
 import { FiSend } from 'react-icons/fi'
 import { BsGithub } from 'react-icons/bs'
@@ -12,9 +12,27 @@ import './contact.css'
 
 const highlights = ['Frontend roles', 'React / Next.js products', 'Multi-role dashboards', 'Contract collaborations']
 
+const successCardVariants = {
+  hidden: { opacity: 0, scale: 0.86, y: 18 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 240, damping: 20, mass: 0.8 },
+  },
+  exit: { opacity: 0, scale: 0.94, y: 8, transition: { duration: 0.22 } },
+}
+
+const formVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+}
+
 const Contact = () => {
   const form = useRef()
   const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
 
   const sendEmail = (event) => {
     event.preventDefault()
@@ -25,11 +43,7 @@ const Contact = () => {
       .then(() => {
         setIsLoading(false)
         event.target.reset()
-        toast.success('Message sent. I will get back to you soon.', {
-          position: 'top-right',
-          autoClose: 5000,
-          theme: 'colored',
-        })
+        setIsSuccess(true)
       })
       .catch(() => {
         setIsLoading(false)
@@ -104,54 +118,119 @@ const Contact = () => {
             </a>
           </div>
         </motion.div>
-        <motion.form
+
+        <motion.div
           className='contact__form'
-          ref={form}
-          onSubmit={sendEmail}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08 }}
         >
-          <div className='form__input-group'>
-            <div className='form__input-div'>
-              <label htmlFor='name'>Name</label>
-              <input required id='name' type='text' placeholder='Your name' name='name' className='form__control' />
-            </div>
-            <div className='form__input-div'>
-              <label htmlFor='email'>Email</label>
-              <input required id='email' type='email' placeholder='you@email.com' name='email' className='form__control' />
-            </div>
-          </div>
-          <div className='form__input-div'>
-            <label htmlFor='subject'>Subject</label>
-            <input required id='subject' type='text' placeholder='Role, product, or collaboration' name='subject' className='form__control' />
-          </div>
-          <div className='form__input-div'>
-            <label htmlFor='message'>Message</label>
-            <textarea
-              required
-              id='message'
-              placeholder='A short note about what you are building'
-              name='message'
-              className='form__control textarea'
-            ></textarea>
-          </div>
-          <button className='button' type='submit' disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <span className='spinner'></span>
-                Sending...
-              </>
+          <AnimatePresence mode='wait'>
+            {isSuccess ? (
+              <motion.div
+                key='success'
+                className='contact__success'
+                variants={successCardVariants}
+                initial='hidden'
+                animate='visible'
+                exit='exit'
+                role='status'
+                aria-live='polite'
+              >
+                <div className='contact__success-mark' aria-hidden='true'>
+                  <span className='contact__success-ring' />
+                  <span className='contact__success-glow' />
+                  <svg className='contact__success-check' viewBox='0 0 52 52'>
+                    <circle className='contact__success-circle' cx='26' cy='26' r='23' fill='none' />
+                    <path className='contact__success-tick' fill='none' d='M15.5 27.2l7.2 7.3 13.8-14.8' />
+                  </svg>
+                </div>
+                <h3 className='contact__success-title'>Message Sent!</h3>
+                <p className='contact__success-text'>
+                  Thank you for submitting your request. I appreciate you reaching out and will get
+                  back to you shortly.
+                </p>
+                <button className='button button--ghost' type='button' onClick={() => setIsSuccess(false)}>
+                  Send another note
+                </button>
+              </motion.div>
             ) : (
-              <>
-                Send Message
-                <span className='button__icon contact__button-icon'>
-                  <FiSend />
-                </span>
-              </>
+              <motion.form
+                key='form'
+                ref={form}
+                onSubmit={sendEmail}
+                className='contact__form-fields'
+                variants={formVariants}
+                initial='hidden'
+                animate='visible'
+                exit='exit'
+              >
+                <div className='form__input-group'>
+                  <div className='form__input-div'>
+                    <label htmlFor='name'>Name</label>
+                    <input
+                      required
+                      id='name'
+                      type='text'
+                      placeholder='Enter your name'
+                      name='name'
+                      autoComplete='name'
+                      className='form__control'
+                    />
+                  </div>
+                  <div className='form__input-div'>
+                    <label htmlFor='email'>Email</label>
+                    <input
+                      required
+                      id='email'
+                      type='email'
+                      placeholder='Enter your email'
+                      name='email'
+                      autoComplete='email'
+                      className='form__control'
+                    />
+                  </div>
+                </div>
+                <div className='form__input-div'>
+                  <label htmlFor='subject'>Subject</label>
+                  <input
+                    required
+                    id='subject'
+                    type='text'
+                    placeholder='Enter your subject'
+                    name='subject'
+                    className='form__control'
+                  />
+                </div>
+                <div className='form__input-div'>
+                  <label htmlFor='message'>Note</label>
+                  <textarea
+                    required
+                    id='message'
+                    placeholder='Enter your note'
+                    name='message'
+                    className='form__control textarea'
+                  ></textarea>
+                </div>
+                <button className='button' type='submit' disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <span className='spinner'></span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <span className='button__icon contact__button-icon'>
+                        <FiSend />
+                      </span>
+                    </>
+                  )}
+                </button>
+              </motion.form>
             )}
-          </button>
-        </motion.form>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </PageWrapper>
   )

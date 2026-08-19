@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import './App.css'
 import Themes from './components/ThemesSection/Themes'
@@ -34,6 +34,7 @@ function AnimatedRoutes() {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/portfolio' element={<Portfolio />} />
+            <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
         </Suspense>
       </motion.div>

@@ -16,12 +16,6 @@
     .home__description{
         font-size: var(--small-font-size);
     }
-    .stats__title{
-        padding-left: 35px;
-    }
-    .stats__title::before{
-        width: 22px;
-    }
     .resume__icon{
         width: 36px;
         height: 36px;
@@ -204,9 +198,6 @@
         display: block;
         margin-bottom: 4px;
     }
-    .stats__box{
-        padding: 15px 15px 25px 20px;
-    }
 }
 @media screen and (max-width:350px) {
     :root{
@@ -215,9 +206,6 @@
     }
     .home__title span{
         display: inline;
-    }
-    .states{
-        grid-template-columns: 1fr;
     }
 }
 

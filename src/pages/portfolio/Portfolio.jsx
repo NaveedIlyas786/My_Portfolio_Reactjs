@@ -46,7 +46,12 @@ const Portfolio = () => {
       <motion.div className='project-grid' variants={list} initial='hidden' animate='show'>
         {featured.map((item, index) => (
           <motion.div key={item.id} className={index === 0 ? 'project-grid__hero' : undefined} variants={card}>
-            <PortfolioItem {...item} layout={index === 0 ? 'hero' : 'default'} index={index + 1} />
+            <PortfolioItem
+              {...item}
+              layout={index === 0 ? 'hero' : 'default'}
+              index={index + 1}
+              priority={index < 2}
+            />
           </motion.div>
         ))}
       </motion.div>

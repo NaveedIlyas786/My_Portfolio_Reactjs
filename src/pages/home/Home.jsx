@@ -31,12 +31,6 @@ const marquee = [
   'i18n / RTL',
 ]
 const orbit = ['React', 'Next.js', 'TypeScript', 'TanStack', 'Redux Toolkit']
-const proof = [
-  { value: '3+', label: 'Years shipping' },
-  { value: '10', label: 'Live projects' },
-  { value: '2', label: 'Companies' },
-  { value: '4', label: 'Product teams' },
-]
 const highlights = [
   {
     icon: <FiZap />,
@@ -209,22 +203,6 @@ const Home = () => {
             <a href='mailto:naveedilyas115@gmail.com'>naveedilyas115@gmail.com</a>
           </motion.div>
         </motion.div>
-
-        <div className='home-proof' id='home-proof'>
-          {proof.map((stat, index) => (
-            <motion.article
-              className='home-proof__card glass-panel'
-              key={stat.label}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 + index * 0.08, duration: 0.45 }}
-              whileHover={{ y: -6 }}
-            >
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </motion.article>
-          ))}
-        </div>
       </section>
 
       <div className='home-marquee' aria-hidden='true'>

@@ -9,14 +9,14 @@ import {
 } from 'react-icons/fa'
 import { FiFileText, FiUser, FiExternalLink } from 'react-icons/fi'
 
-import Pixora from './assets/pixora.png'
-import CaseReady from './assets/caseready.png'
-import Loadout from './assets/loadout.png'
-import DealLink from './assets/deallink.png'
-import Work1 from './assets/1.png'
-import Work2 from './assets/youtube.png'
-import Work3 from './assets/HomePortfolio.png'
-import Work4 from './assets/construction.jpg'
+import Pixora from './assets/pixora.webp'
+import CaseReady from './assets/caseready.webp'
+import Loadout from './assets/loadout.webp'
+import DealLink from './assets/deallink.webp'
+import Work1 from './assets/movix.webp'
+import Work2 from './assets/yt-clone.webp'
+import Work3 from './assets/home-portfolio.webp'
+import Work4 from './assets/construction.webp'
 
 import Theme1 from './assets/purple.png'
 import Theme2 from './assets/red.png'
@@ -83,29 +83,6 @@ export const personalInfo = [
     title: 'Email',
     description: 'naveedilyas115@gmail.com',
     href: 'mailto:naveedilyas115@gmail.com',
-  },
-]
-
-export const stats = [
-  {
-    id: 1,
-    no: '3+',
-    title: 'Years of <br /> Experience',
-  },
-  {
-    id: 2,
-    no: '10',
-    title: 'Live <br /> Projects',
-  },
-  {
-    id: 3,
-    no: '2',
-    title: 'Companies <br /> Shipped With',
-  },
-  {
-    id: 4,
-    no: '4',
-    title: 'Product Teams <br /> Shipped With',
   },
 ]
 

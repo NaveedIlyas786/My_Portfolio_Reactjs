@@ -1,5 +1,4 @@
 import Info from '../../components/Info'
-import Stats from '../../components/Stats'
 import { FaDownload } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import CV from '../../assets/Naveed_Resume.pdf'
@@ -66,7 +65,7 @@ const About = () => {
           ))}
         </div>
 
-        <div className='about__container grid'>
+        <div className='about__container'>
           <div className='about__info glass-panel'>
             <span className='section-label'>Details</span>
             <h3 className='section__subtitle'>Personal info</h3>
@@ -79,9 +78,6 @@ const About = () => {
                 <FaDownload />
               </span>
             </a>
-          </div>
-          <div className='states grid'>
-            <Stats />
           </div>
         </div>
       </section>

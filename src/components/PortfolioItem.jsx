@@ -1,6 +1,40 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FiArrowUpRight, FiExternalLink, FiStar } from 'react-icons/fi'
 import Dialog from './ui/Dialog'
+
+const ProjectImage = ({
+  src,
+  alt,
+  priority = false,
+  className = '',
+  sizes = '(min-width: 768px) 50vw, 100vw',
+}) => {
+  const imageRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    const node = imageRef.current
+    if (node?.complete && node.naturalWidth > 0) {
+      setLoaded(true)
+    }
+  }, [src])
+
+  return (
+    <img
+      ref={imageRef}
+      src={src}
+      alt={alt}
+      className={`${className} ${loaded ? 'is-loaded' : ''}`.trim()}
+      width={1400}
+      height={788}
+      sizes={sizes}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding='async'
+      fetchPriority={priority ? 'high' : 'auto'}
+      onLoad={() => setLoaded(true)}
+    />
+  )
+}
 
 const PortfolioItem = ({
   img,
@@ -15,6 +49,7 @@ const PortfolioItem = ({
   featured,
   layout = 'default',
   index,
+  priority = false,
 }) => {
   const [open, setOpen] = useState(false)
   const isHero = layout === 'hero'
@@ -32,7 +67,12 @@ const PortfolioItem = ({
       >
         <button type='button' className='project-card__button' onClick={() => setOpen(true)}>
           <div className='project-card__media'>
-            <img src={img} alt={title} />
+            <ProjectImage
+              src={img}
+              alt={title}
+              priority={priority}
+              sizes={isHero ? '(min-width: 768px) 58vw, 100vw' : '(min-width: 768px) 42vw, 100vw'}
+            />
             <span className='project-card__shine' aria-hidden='true' />
             <div className='project-card__badges'>
               {comingSoon ? (
@@ -74,7 +114,13 @@ const PortfolioItem = ({
 
       <Dialog open={open} onClose={() => setOpen(false)}>
         <div className='ui-dialog-media-wrap'>
-          <img src={img} alt={title} className='ui-dialog-media' />
+          <ProjectImage
+            src={img}
+            alt={title}
+            priority
+            className='ui-dialog-media'
+            sizes='(min-width: 820px) 772px, 100vw'
+          />
         </div>
         <div className='ui-dialog-kicker'>
           {comingSoon ? (
