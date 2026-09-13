@@ -14,7 +14,7 @@ const getStorageColor=()=>{
   return color;
 }
 const getStorageTheme=()=>{
-  let theme='lighttheme';
+  let theme='darktheme';
   if(localStorage.getItem('theme')){
     theme=localStorage.getItem('theme')
   }

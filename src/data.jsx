@@ -13,7 +13,7 @@ import Pixora from './assets/pixora.webp'
 import CaseReady from './assets/caseready.webp'
 import Loadout from './assets/loadout.webp'
 import DealLink from './assets/deallink.webp'
-import Work1 from './assets/movix.webp'
+import Work1 from './assets/movix.png'
 import Work2 from './assets/yt-clone.webp'
 import Work3 from './assets/home-portfolio.webp'
 import Work4 from './assets/construction.webp'
@@ -196,24 +196,24 @@ export const portfolio = [
   {
     id: 1,
     featured: true,
-    img: Pixora,
+    img: Loadout,
     company: 'Tekxai',
-    title: 'Pixora AI Photo Editor',
+    title: 'Loadout Marketplace',
     short:
-      'AI photo editor with Google OAuth, usage tracking, ImageKit transforms, and Stripe billing.',
-    deploylink: 'https://pixora-ai-photo-editor.vercel.app/',
+      'Peer-to-peer marketplace with role-based access, listings, chat, and live notifications.',
+    deploylink: 'https://loadoutp2p.com/',
     comingSoon: false,
-    stack: ['Next.js', 'TypeScript', 'Prisma', 'MongoDB', 'Stripe', 'ImageKit', 'NextAuth'],
+    stack: ['React.js', 'TypeScript', 'Vite', 'TanStack Query', 'Zustand', 'Socket.IO'],
     bullets: [
-      'Built an AI photo editor with Next.js, Google OAuth, and Prisma/MongoDB usage tracking.',
-      'Integrated ImageKit for signed uploads and AI transforms with free-plan usage limits.',
-      'Added Stripe Checkout and webhooks for Free/Pro plans and quota enforcement.',
+      'Delivered a multi-role marketplace with separate user and admin experiences and protected routes.',
+      'Implemented listing creation, category browsing, saved products, seller profiles, and ratings.',
+      'Integrated REST APIs with Socket.IO chat and notifications across sessions.',
     ],
     details: [
-      detail(<FiFileText />, 'Project : ', 'Pixora AI Photo Editor'),
+      detail(<FiFileText />, 'Project : ', 'Loadout P2P Marketplace'),
       detail(<FiUser />, 'Company : ', 'Tekxai'),
-      detail(<FaCode />, 'Stack : ', 'Next.js, TypeScript, Prisma, Stripe'),
-      detail(<FiExternalLink />, 'Preview : ', 'https://pixora-ai-photo-editor.vercel.app/'),
+      detail(<FaCode />, 'Stack : ', 'React, TypeScript, Socket.IO'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://loadoutp2p.com/'),
     ],
   },
   {
@@ -239,27 +239,28 @@ export const portfolio = [
       detail(<FiExternalLink />, 'Preview : ', 'https://app.spedinsight.com/'),
     ],
   },
-  {
+ 
+   {
     id: 3,
     featured: true,
-    img: Loadout,
+    img: Pixora,
     company: 'Tekxai',
-    title: 'Loadout Marketplace',
+    title: 'Pixora AI Photo Editor',
     short:
-      'Peer-to-peer marketplace with role-based access, listings, chat, and live notifications.',
-    deploylink: 'https://loadoutp2p.com/',
+      'AI photo editor with Google OAuth, usage tracking, ImageKit transforms, and Stripe billing.',
+    deploylink: 'https://pixora-ai-photo-editor.vercel.app/',
     comingSoon: false,
-    stack: ['React.js', 'TypeScript', 'Vite', 'TanStack Query', 'Zustand', 'Socket.IO'],
+    stack: ['Next.js', 'TypeScript', 'Prisma', 'MongoDB', 'Stripe', 'ImageKit', 'NextAuth'],
     bullets: [
-      'Delivered a multi-role marketplace with separate user and admin experiences and protected routes.',
-      'Implemented listing creation, category browsing, saved products, seller profiles, and ratings.',
-      'Integrated REST APIs with Socket.IO chat and notifications across sessions.',
+      'Built an AI photo editor with Next.js, Google OAuth, and Prisma/MongoDB usage tracking.',
+      'Integrated ImageKit for signed uploads and AI transforms with free-plan usage limits.',
+      'Added Stripe Checkout and webhooks for Free/Pro plans and quota enforcement.',
     ],
     details: [
-      detail(<FiFileText />, 'Project : ', 'Loadout P2P Marketplace'),
+      detail(<FiFileText />, 'Project : ', 'Pixora AI Photo Editor'),
       detail(<FiUser />, 'Company : ', 'Tekxai'),
-      detail(<FaCode />, 'Stack : ', 'React, TypeScript, Socket.IO'),
-      detail(<FiExternalLink />, 'Preview : ', 'https://loadoutp2p.com/'),
+      detail(<FaCode />, 'Stack : ', 'Next.js, TypeScript, Prisma, Stripe'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://pixora-ai-photo-editor.vercel.app/'),
     ],
   },
   {
@@ -286,10 +287,10 @@ export const portfolio = [
   },
   {
     id: 5,
-    featured: false,
+    featured: true,
     img: Work1,
     company: 'Personal',
-    title: 'Movix Streaming Web App',
+    title: 'MovieSphere Web App',
     short:
       'Movie discovery app powered by TMDB, with search, details, and Redux Toolkit state.',
     deploylink:
@@ -301,7 +302,7 @@ export const portfolio = [
       'Managed client state with Redux Toolkit and styled the UI with SCSS/SASS.',
     ],
     details: [
-      detail(<FiFileText />, 'Project : ', 'Movix Streaming Web App'),
+      detail(<FiFileText />, 'Project : ', 'MovieSphere Web App'),
       detail(<FiUser />, 'API : ', 'TMDB'),
       detail(<FaCode />, 'Stack : ', 'React JS, Redux Toolkit, SCSS'),
       detail(
