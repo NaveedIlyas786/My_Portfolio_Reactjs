@@ -11,6 +11,17 @@ const ParticlesAnimation = ({
 
   useEffect(() => {
     let cancelled = false
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+    const isSmallScreen = window.innerWidth < 768
+
+    if (reduceMotion || isSmallScreen) {
+      setParticles(null)
+      return () => {
+        cancelled = true
+      }
+    }
 
     import('react-tsparticles')
       .then((mod) => {
@@ -39,20 +50,18 @@ const ParticlesAnimation = ({
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        fps_limit: 120,
+        fps_limit: 30,
+        detectRetina: false,
         interactivity: {
           events: {
             onHover: {
-              enable: true,
-              mode: 'repulse',
+              enable: false,
+            },
+            onClick: {
+              enable: false,
             },
           },
-          modes: {
-            repulse: {
-              distance: 180,
-              duration: 0.3,
-            },
-          },
+          modes: {},
         },
         particles: {
           color: {
@@ -60,10 +69,10 @@ const ParticlesAnimation = ({
           },
           links: {
             color: '#A0A09B',
-            distance: 150,
-            enable: true,
-            opacity: 0.2,
-            width: 1,
+            distance: 120,
+            enable: false,
+            opacity: 0.12,
+            width: 0.8,
           },
           shape: {
             type: 'circle',
@@ -75,22 +84,24 @@ const ParticlesAnimation = ({
             value: { min: CircleSizeMin, max: CircleSizeMax },
           },
           number: {
-            value: numberOfCircles,
+            value: Math.max(8, Math.min(numberOfCircles, 16)),
           },
           move: {
             direction: 'none',
             enable: true,
             outMode: {
-              default: 'bounce',
+              default: 'out',
             },
-            speed: 2,
+            speed: 0.7,
+            random: true,
           },
           opacity: {
-            value: 0.4,
+            value: 0.38,
           },
           collisions: {
-            enable: true,
+            enable: false,
           },
+          reduceDuplicates: true,
         },
       }}
     />

@@ -30,7 +30,7 @@ const ProjectImage = ({
       sizes={sizes}
       loading={priority ? 'eager' : 'lazy'}
       decoding='async'
-      fetchPriority={priority ? 'high' : 'auto'}
+      fetchpriority={priority ? 'high' : 'auto'}
       onLoad={() => setLoaded(true)}
     />
   )
@@ -65,18 +65,28 @@ const PortfolioItem = ({
       <article
         className={`project-card ${isHero ? 'project-card--hero' : ''} ${featured ? 'project-card--featured' : ''}`}
       >
-        <button type='button' className='project-card__button' onClick={() => setOpen(true)}>
+        <button
+          type='button'
+          className='project-card__button'
+          onClick={() => setOpen(true)}
+        >
           <div className='project-card__media'>
             <ProjectImage
               src={img}
               alt={title}
               priority={priority}
-              sizes={isHero ? '(min-width: 768px) 58vw, 100vw' : '(min-width: 768px) 42vw, 100vw'}
+              sizes={
+                isHero
+                  ? '(min-width: 768px) 58vw, 100vw'
+                  : '(min-width: 768px) 42vw, 100vw'
+              }
             />
             <span className='project-card__shine' aria-hidden='true' />
             <div className='project-card__badges'>
               {comingSoon ? (
-                <span className='project-badge project-badge--soon'>Demo soon</span>
+                <span className='project-badge project-badge--soon'>
+                  Demo soon
+                </span>
               ) : (
                 <span className='project-badge project-badge--live'>
                   <span className='project-badge__dot' aria-hidden='true' />
@@ -90,13 +100,17 @@ const PortfolioItem = ({
                 </span>
               )}
             </div>
-            {typeof index === 'number' && <span className='project-card__index'>{number}</span>}
+            {typeof index === 'number' && (
+              <span className='project-card__index'>{number}</span>
+            )}
           </div>
           <div className='project-card__body'>
             <p className='project-card__company'>{company}</p>
             <h3 className='project-card__title'>{title}</h3>
             <p className='project-card__copy'>{short}</p>
-            {isHero && bullets[0] && <p className='project-card__highlight'>{bullets[0]}</p>}
+            {isHero && bullets[0] && (
+              <p className='project-card__highlight'>{bullets[0]}</p>
+            )}
             <div className='project-card__stack'>
               {(isHero ? stack : stack.slice(0, 4)).map((tech) => (
                 <span className='ui-chip' key={tech}>
@@ -144,7 +158,10 @@ const PortfolioItem = ({
             const isUrl = typeof desc === 'string' && /^https?:\/\//i.test(desc)
 
             return (
-              <li className='ui-dialog-meta-item' key={`${label}-${detailIndex}`}>
+              <li
+                className='ui-dialog-meta-item'
+                key={`${label}-${detailIndex}`}
+              >
                 <span>{icon}</span>
                 <span>
                   <strong>{label}</strong>

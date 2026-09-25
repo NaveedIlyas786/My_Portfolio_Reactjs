@@ -13,12 +13,18 @@ const Dialog = ({ open, onClose, children }) => {
     }
 
     document.addEventListener('keydown', onKey)
-    const previousOverflow = document.body.style.overflow
+
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
 
     return () => {
       document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = previousOverflow
+      document.body.style.overflow = 'auto'
+      document.body.style.overflowX = 'hidden'
+      document.body.style.overflowY = 'auto'
+      document.documentElement.style.overflow = 'auto'
+      document.documentElement.style.overflowX = 'hidden'
+      document.documentElement.style.overflowY = 'auto'
     }
   }, [open, onClose])
 
@@ -46,7 +52,12 @@ const Dialog = ({ open, onClose, children }) => {
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             transition={{ type: 'spring', damping: 26, stiffness: 320 }}
           >
-            <button type='button' className='ui-dialog-close' onClick={onClose} aria-label='Close'>
+            <button
+              type='button'
+              className='ui-dialog-close'
+              onClick={onClose}
+              aria-label='Close'
+            >
               <IoClose size={20} />
             </button>
             <div className='ui-dialog-body'>{children}</div>
@@ -54,7 +65,7 @@ const Dialog = ({ open, onClose, children }) => {
         </div>
       )}
     </AnimatePresence>,
-    document.body
+    document.body,
   )
 }
 

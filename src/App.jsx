@@ -1,5 +1,11 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import './App.css'
 import Themes from './components/ThemesSection/Themes'
@@ -12,11 +18,30 @@ const About = lazy(() => import('./pages/about/About'))
 const Contact = lazy(() => import('./pages/contact/Contact'))
 const Portfolio = lazy(() => import('./pages/portfolio/Portfolio'))
 
+const resetScrollLock = () => {
+  const body = document.body
+  const root = document.documentElement
+
+  if (!body || !root) return
+  ;[body, root].forEach((element) => {
+    element.style.setProperty('overflow', 'auto', 'important')
+    element.style.setProperty('overflow-x', 'hidden', 'important')
+    element.style.setProperty('overflow-y', 'auto', 'important')
+    element.style.setProperty('height', 'auto', 'important')
+    element.style.setProperty('max-height', 'none', 'important')
+    element.style.setProperty('position', 'static', 'important')
+  })
+
+  body.style.removeProperty('position')
+  root.style.removeProperty('position')
+}
+
 function AnimatedRoutes() {
   const location = useLocation()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+    resetScrollLock()
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname])
 
   return (
@@ -28,7 +53,9 @@ function AnimatedRoutes() {
         exit={{ opacity: 0, y: -12 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
-        <Suspense fallback={<div className='route-fallback' aria-hidden='true' />}>
+        <Suspense
+          fallback={<div className='route-fallback' aria-hidden='true' />}
+        >
           <Routes location={location}>
             <Route index element={<Home />} />
             <Route path='/about' element={<About />} />
@@ -43,6 +70,23 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  useEffect(() => {
+    resetScrollLock()
+
+    const handleScrollRecovery = () => resetScrollLock()
+    const options = { passive: true }
+
+    window.addEventListener('wheel', handleScrollRecovery, options)
+    window.addEventListener('touchmove', handleScrollRecovery, options)
+    window.addEventListener('scroll', handleScrollRecovery, options)
+
+    return () => {
+      window.removeEventListener('wheel', handleScrollRecovery)
+      window.removeEventListener('touchmove', handleScrollRecovery)
+      window.removeEventListener('scroll', handleScrollRecovery)
+    }
+  }, [])
+
   return (
     <BrowserRouter>
       <AmbientBackground />

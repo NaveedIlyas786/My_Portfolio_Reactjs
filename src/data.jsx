@@ -253,7 +253,7 @@ export const portfolio = [
       detail(
         <FiExternalLink />,
         'Preview : ',
-        'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
+        'https://movies-visiting-videos-project.vercel.app/',
       ),
     ],
   },
