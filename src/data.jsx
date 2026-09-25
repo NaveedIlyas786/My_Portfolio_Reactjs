@@ -203,7 +203,14 @@ export const portfolio = [
       'Peer-to-peer marketplace with role-based access, listings, chat, and live notifications.',
     deploylink: 'https://loadoutp2p.com/',
     comingSoon: false,
-    stack: ['React.js', 'TypeScript', 'Vite', 'TanStack Query', 'Zustand', 'Socket.IO'],
+    stack: [
+      'React.js',
+      'TypeScript',
+      'Vite',
+      'TanStack Query',
+      'Zustand',
+      'Socket.IO',
+    ],
     bullets: [
       'Delivered a multi-role marketplace with separate user and admin experiences and protected routes.',
       'Implemented listing creation, category browsing, saved products, seller profiles, and ratings.',
@@ -219,28 +226,39 @@ export const portfolio = [
   {
     id: 2,
     featured: true,
-    img: CaseReady,
-    company: 'Tekxai · ForthRight AI',
-    title: 'ForthRight AI CaseReady',
+    img: Work1,
+    company: 'Personal',
+    title: 'MovieSphere Web App',
     short:
-      'Multi-role Texas SpEd platform for IEP scoring, Needs Review, and PEIMS-ready export.',
-    deploylink: 'https://app.spedinsight.com/',
+      'Movie discovery app powered by TMDB, with search, details, and Redux Toolkit state.',
+    deploylink:
+      'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
     comingSoon: false,
-    stack: ['Next.js', 'TypeScript', 'TanStack Query', 'Zustand', 'WebSockets', 'Tailwind'],
+    stack: [
+      'React.js',
+      'Redux Toolkit',
+      'SCSS',
+      'TMDB API',
+      'Vite',
+      'React Player',
+    ],
     bullets: [
-      'Owned frontend delivery for a multi-role Texas SpEd platform with RBAC and protected routing.',
-      'Built IEP workflows including upload, AI extraction review, HB 2 intensity scoring, and TWEDS export gates.',
-      'Designed data flows with TanStack Query and WebSockets so extract/score pipelines stay in sync.',
+      'Built a movie browsing experience with TMDB search, details, and category views.',
+      'Managed client state with Redux Toolkit and styled the UI with SCSS/SASS.',
     ],
     details: [
-      detail(<FiFileText />, 'Project : ', 'SpEd Insight / CaseReady'),
-      detail(<FiUser />, 'Company : ', 'Tekxai · ForthRight AI'),
-      detail(<FaCode />, 'Stack : ', 'Next.js, TanStack Query, Zustand'),
-      detail(<FiExternalLink />, 'Preview : ', 'https://app.spedinsight.com/'),
+      detail(<FiFileText />, 'Project : ', 'MovieSphere Web App'),
+      detail(<FiUser />, 'API : ', 'TMDB'),
+      detail(<FaCode />, 'Stack : ', 'React JS, Redux Toolkit, SCSS'),
+      detail(
+        <FiExternalLink />,
+        'Preview : ',
+        'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
+      ),
     ],
   },
- 
-   {
+
+  {
     id: 3,
     featured: true,
     img: Pixora,
@@ -250,7 +268,15 @@ export const portfolio = [
       'AI photo editor with Google OAuth, usage tracking, ImageKit transforms, and Stripe billing.',
     deploylink: 'https://pixora-ai-photo-editor.vercel.app/',
     comingSoon: false,
-    stack: ['Next.js', 'TypeScript', 'Prisma', 'MongoDB', 'Stripe', 'ImageKit', 'NextAuth'],
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Prisma',
+      'MongoDB',
+      'Stripe',
+      'ImageKit',
+      'NextAuth',
+    ],
     bullets: [
       'Built an AI photo editor with Next.js, Google OAuth, and Prisma/MongoDB usage tracking.',
       'Integrated ImageKit for signed uploads and AI transforms with free-plan usage limits.',
@@ -260,7 +286,11 @@ export const portfolio = [
       detail(<FiFileText />, 'Project : ', 'Pixora AI Photo Editor'),
       detail(<FiUser />, 'Company : ', 'Tekxai'),
       detail(<FaCode />, 'Stack : ', 'Next.js, TypeScript, Prisma, Stripe'),
-      detail(<FiExternalLink />, 'Preview : ', 'https://pixora-ai-photo-editor.vercel.app/'),
+      detail(
+        <FiExternalLink />,
+        'Preview : ',
+        'https://pixora-ai-photo-editor.vercel.app/',
+      ),
     ],
   },
   {
@@ -288,30 +318,34 @@ export const portfolio = [
   {
     id: 5,
     featured: true,
-    img: Work1,
-    company: 'Personal',
-    title: 'MovieSphere Web App',
+    img: CaseReady,
+    company: 'Tekxai · ForthRight AI',
+    title: 'ForthRight AI CaseReady',
     short:
-      'Movie discovery app powered by TMDB, with search, details, and Redux Toolkit state.',
-    deploylink:
-      'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
+      'Multi-role Texas SpEd platform for IEP scoring, Needs Review, and PEIMS-ready export.',
+    deploylink: 'https://app.spedinsight.com/',
     comingSoon: false,
-    stack: ['React.js', 'Redux Toolkit', 'SCSS'],
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'TanStack Query',
+      'Zustand',
+      'WebSockets',
+      'Tailwind',
+    ],
     bullets: [
-      'Built a movie browsing experience with TMDB search, details, and category views.',
-      'Managed client state with Redux Toolkit and styled the UI with SCSS/SASS.',
+      'Owned frontend delivery for a multi-role Texas SpEd platform with RBAC and protected routing.',
+      'Built IEP workflows including upload, AI extraction review, HB 2 intensity scoring, and TWEDS export gates.',
+      'Designed data flows with TanStack Query and WebSockets so extract/score pipelines stay in sync.',
     ],
     details: [
-      detail(<FiFileText />, 'Project : ', 'MovieSphere Web App'),
-      detail(<FiUser />, 'API : ', 'TMDB'),
-      detail(<FaCode />, 'Stack : ', 'React JS, Redux Toolkit, SCSS'),
-      detail(
-        <FiExternalLink />,
-        'Preview : ',
-        'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/'
-      ),
+      detail(<FiFileText />, 'Project : ', 'SpEd Insight / CaseReady'),
+      detail(<FiUser />, 'Company : ', 'Tekxai · ForthRight AI'),
+      detail(<FaCode />, 'Stack : ', 'Next.js, TanStack Query, Zustand'),
+      detail(<FiExternalLink />, 'Preview : ', 'https://app.spedinsight.com/'),
     ],
   },
+
   {
     id: 6,
     featured: false,
@@ -335,7 +369,7 @@ export const portfolio = [
       detail(
         <FiExternalLink />,
         'Preview : ',
-        'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/'
+        'https://youtube-clone-tailwind-css-react-js-knuu-o44o8j8ox.vercel.app/',
       ),
     ],
   },
@@ -380,7 +414,11 @@ export const portfolio = [
       detail(<FiFileText />, 'Project : ', 'Portfolio'),
       detail(<FiUser />, 'Client : ', 'Self'),
       detail(<FaCode />, 'Stack : ', 'React JS, Framer Motion, Tailwind CSS'),
-      detail(<FiExternalLink />, 'Preview : ', 'https://my-portfolio-reactjs-opal.vercel.app/'),
+      detail(
+        <FiExternalLink />,
+        'Preview : ',
+        'https://my-portfolio-reactjs-opal.vercel.app/',
+      ),
     ],
   },
 ]
