@@ -25,9 +25,17 @@
   width: 10px;
   height: 10px;
   background: var(--first-color);
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  opacity: 0.7;
-  animation: twinkle 2.8s ease-in-out infinite;
+  clip-path: polygon(
+    50% 0,
+    62% 38%,
+    100% 50%,
+    62% 62%,
+    50% 100%,
+    38% 62%,
+    0 50%,
+    38% 38%
+  );
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -108,7 +116,8 @@
   object-fit: contain;
   object-position: center;
   border-radius: 26px;
-  border: 1px solid color-mix(in srgb, var(--first-color) 28%, var(--border-color));
+  border: 1px solid
+    color-mix(in srgb, var(--first-color) 28%, var(--border-color));
   box-shadow:
     0 18px 40px color-mix(in srgb, var(--first-color) 22%, transparent),
     inset 0 0 0 1px color-mix(in srgb, #fff 12%, transparent);
@@ -140,10 +149,11 @@
   letter-spacing: 0.02em;
   color: var(--title-color);
   background: color-mix(in srgb, var(--container-color) 82%, transparent);
-  border: 1px solid color-mix(in srgb, var(--first-color) 28%, var(--border-color));
-  box-shadow: 0 10px 24px color-mix(in srgb, var(--first-color) 16%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--first-color) 28%, var(--border-color));
+  box-shadow: 0 10px 24px
+    color-mix(in srgb, var(--first-color) 16%, transparent);
   backdrop-filter: blur(14px);
-  animation: floatSoft 4.8s ease-in-out infinite;
   white-space: nowrap;
 }
 
@@ -175,8 +185,10 @@
   font-weight: 700;
   color: var(--title-color);
   background: color-mix(in srgb, var(--container-color) 88%, transparent);
-  border: 1px solid color-mix(in srgb, var(--first-color) 24%, var(--border-color));
-  box-shadow: 0 14px 30px color-mix(in srgb, var(--first-color) 18%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--first-color) 24%, var(--border-color));
+  box-shadow: 0 14px 30px
+    color-mix(in srgb, var(--first-color) 18%, transparent);
   backdrop-filter: blur(16px);
   white-space: nowrap;
 }
@@ -203,7 +215,6 @@
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.16);
-  animation: livePulse 1.8s ease-out infinite;
 }
 
 .home__content {
@@ -232,7 +243,6 @@
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.16);
-  animation: livePulse 1.8s ease-out infinite;
 }
 
 .home__meta {
@@ -288,7 +298,7 @@
 }
 
 .home__stack .ui-chip {
-  animation: chipIn 0.6s ease both;
+  animation: none;
 }
 
 .home__actions {
@@ -301,7 +311,9 @@
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .home__socials a:hover {
@@ -312,8 +324,15 @@
 .home-marquee {
   overflow: hidden;
   margin: 1.75rem -1.25rem 2.25rem;
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  border-block: 1px solid color-mix(in srgb, var(--first-color) 14%, var(--border-color));
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  border-block: 1px solid
+    color-mix(in srgb, var(--first-color) 14%, var(--border-color));
   background: color-mix(in srgb, var(--first-color) 6%, transparent);
 }
 
@@ -321,7 +340,7 @@
   display: flex;
   width: max-content;
   gap: 0;
-  animation: marquee 28s linear infinite;
+  animation: none;
 }
 
 .home-marquee__track span {
@@ -469,53 +488,20 @@
   z-index: 1;
 }
 
-@keyframes floatSoft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.25;
-    transform: scale(0.8) rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.15) rotate(18deg);
-  }
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes chipIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media screen and (max-width: 1023px) {
   .home {
     min-height: auto;
     padding-top: 5rem;
     text-align: center;
+  }
+
+  .home__spark,
+  .home__orbit,
+  .home__float-dot,
+  .home__badge::before,
+  .home__stack .ui-chip,
+  .home-marquee__track {
+    animation: none !important;
   }
 
   .home__content,

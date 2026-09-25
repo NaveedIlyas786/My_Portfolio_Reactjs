@@ -34,7 +34,8 @@
   cursor: pointer;
   overflow: hidden;
   border-radius: 24px;
-  border: 1px solid color-mix(in srgb, var(--first-color) 22%, var(--border-color));
+  border: 1px solid
+    color-mix(in srgb, var(--first-color) 22%, var(--border-color));
   background: color-mix(in srgb, var(--container-color) 88%, transparent);
   box-shadow:
     0 16px 40px color-mix(in srgb, var(--first-color) 14%, transparent),
@@ -66,21 +67,8 @@
   border-radius: 16px;
   aspect-ratio: 16 / 9;
   isolation: isolate;
-  background:
-    linear-gradient(
-      100deg,
-      color-mix(in srgb, var(--container-color) 78%, var(--body-color)) 20%,
-      color-mix(in srgb, var(--first-color) 14%, var(--container-color)) 50%,
-      color-mix(in srgb, var(--container-color) 78%, var(--body-color)) 80%
-    );
-  background-size: 220% 100%;
-  animation: mediaShimmer 1.15s ease-in-out infinite;
+  background: color-mix(in srgb, var(--container-color) 88%, var(--body-color));
   box-shadow: inset 0 0 0 1px color-mix(in srgb, #fff 8%, transparent);
-}
-
-.project-card__media:has(img.is-loaded) {
-  animation: none;
-  background: color-mix(in srgb, var(--container-color) 70%, var(--body-color));
 }
 
 .project-card__media img {
@@ -89,12 +77,13 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  opacity: 0;
-  transition: opacity 0.28s ease;
+  opacity: 1;
+  background: transparent;
+  transition: none;
 }
 
-.project-card__media img.is-loaded {
-  opacity: 1;
+.project-card__shine {
+  display: none !important;
 }
 
 .project-card__media::before {
@@ -172,7 +161,11 @@
 .project-badge--live {
   color: #bbf7d0;
   border-color: rgba(74, 222, 128, 0.42);
-  background: linear-gradient(180deg, rgba(16, 32, 24, 0.96), rgba(8, 14, 12, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(16, 32, 24, 0.96),
+    rgba(8, 14, 12, 0.96)
+  );
 }
 
 .project-badge__dot {
@@ -192,44 +185,29 @@
     var(--first-color)
   );
   border-color: color-mix(in srgb, var(--first-color) 35%, #fff);
-  box-shadow: 0 10px 20px color-mix(in srgb, var(--first-color) 36%, transparent);
+  box-shadow: 0 10px 20px
+    color-mix(in srgb, var(--first-color) 36%, transparent);
 }
 
 .project-badge--soon {
   color: #fde68a;
   border-color: rgba(245, 158, 11, 0.42);
-  background: linear-gradient(180deg, rgba(42, 32, 12, 0.96), rgba(16, 12, 8, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(42, 32, 12, 0.96),
+    rgba(16, 12, 8, 0.96)
+  );
 }
 
-@keyframes livePulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
-  }
-  70% {
-    box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
-  }
-}
-
-@keyframes mediaShimmer {
-  from {
-    background-position: 100% 0;
-  }
-  to {
-    background-position: -100% 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
   .project-badge__dot,
-  .project-card__media {
-    animation: none;
+  .project-card__media,
+  .project-card__shine {
+    animation: none !important;
   }
 
   .project-card__media img {
-    transition: none;
+    transition: none !important;
   }
 }
 
@@ -342,7 +320,12 @@
   content: '';
   width: min(120px, 18vw);
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--first-color), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--first-color),
+    transparent
+  );
 }
 
 .home-selected {
@@ -387,7 +370,9 @@
   white-space: nowrap;
   background: color-mix(in srgb, var(--first-color) 10%, transparent);
   border: 1px solid color-mix(in srgb, var(--first-color) 24%, transparent);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .home-selected__head a:hover,

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { useEffect } from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -6,90 +6,36 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import './App.css'
 import Themes from './components/ThemesSection/Themes'
 import Navbar from './components/Navbar'
-import AmbientBackground from './components/AmbientBackground'
+import Home from './pages/home/Home'
+import About from './pages/about/About'
+import Contact from './pages/contact/Contact'
+import Portfolio from './pages/portfolio/Portfolio'
 import './tailwind.css'
-
-const Home = lazy(() => import('./pages/home/Home'))
-const About = lazy(() => import('./pages/about/About'))
-const Contact = lazy(() => import('./pages/contact/Contact'))
-const Portfolio = lazy(() => import('./pages/portfolio/Portfolio'))
-
-const resetScrollLock = () => {
-  const body = document.body
-  const root = document.documentElement
-
-  if (!body || !root) return
-  ;[body, root].forEach((element) => {
-    element.style.setProperty('overflow', 'auto', 'important')
-    element.style.setProperty('overflow-x', 'hidden', 'important')
-    element.style.setProperty('overflow-y', 'auto', 'important')
-    element.style.setProperty('height', 'auto', 'important')
-    element.style.setProperty('max-height', 'none', 'important')
-    element.style.setProperty('position', 'static', 'important')
-  })
-
-  body.style.removeProperty('position')
-  root.style.removeProperty('position')
-}
 
 function AnimatedRoutes() {
   const location = useLocation()
 
   useEffect(() => {
-    resetScrollLock()
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname])
 
   return (
-    <AnimatePresence mode='wait'>
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -12 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <Suspense
-          fallback={<div className='route-fallback' aria-hidden='true' />}
-        >
-          <Routes location={location}>
-            <Route index element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/portfolio' element={<Portfolio />} />
-            <Route path='*' element={<Navigate to='/' replace />} />
-          </Routes>
-        </Suspense>
-      </motion.div>
-    </AnimatePresence>
+    <Routes location={location}>
+      <Route index element={<Home />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/contact' element={<Contact />} />
+      <Route path='/portfolio' element={<Portfolio />} />
+      <Route path='*' element={<Navigate to='/' replace />} />
+    </Routes>
   )
 }
 
 function App() {
-  useEffect(() => {
-    resetScrollLock()
-
-    const handleScrollRecovery = () => resetScrollLock()
-    const options = { passive: true }
-
-    window.addEventListener('wheel', handleScrollRecovery, options)
-    window.addEventListener('touchmove', handleScrollRecovery, options)
-    window.addEventListener('scroll', handleScrollRecovery, options)
-
-    return () => {
-      window.removeEventListener('wheel', handleScrollRecovery)
-      window.removeEventListener('touchmove', handleScrollRecovery)
-      window.removeEventListener('scroll', handleScrollRecovery)
-    }
-  }, [])
-
   return (
     <BrowserRouter>
-      <AmbientBackground />
       <Navbar />
       <Themes />
       <AnimatedRoutes />

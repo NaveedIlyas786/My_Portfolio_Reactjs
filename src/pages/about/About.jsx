@@ -1,10 +1,8 @@
 import Info from '../../components/Info'
 import { FaDownload } from 'react-icons/fa'
-import { motion } from 'framer-motion'
 import CV from '../../assets/Naveed_Resume.pdf'
 import { resume, skillGroups } from '../../data'
 import ResumeItem from '../../components/ResumeItem'
-import ParticlesAnimation from '../../components/particleAnimation/ParticlesAnimation'
 import PageWrapper from '../../components/PageWrapper'
 import './about.css'
 
@@ -32,36 +30,24 @@ const About = () => {
       accent='Me'
       subtitle='Comfortable owning features from requirements through polished delivery, collaborating with design and backend, and improving performance across the frontend.'
     >
-      <ParticlesAnimation id='tsparticles-about' numberOfCircles={16} CircleSizeMin={1} CircleSizeMax={3} />
-
       <section className='about'>
-        <motion.div
-          className='about__hero glass-panel'
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
+        <div className='about__hero glass-panel'>
           <p className='about__role'>Frontend Engineer · Lahore, Pakistan</p>
           <h3>Building production interfaces for multi-role products.</h3>
           <p>
-            I work closest to the product surface: reusable TypeScript components, auth-aware
-            routing, and data-fetching that stays predictable as features grow.
+            I work closest to the product surface: reusable TypeScript
+            components, auth-aware routing, and data-fetching that stays
+            predictable as features grow.
           </p>
-        </motion.div>
+        </div>
 
         <div className='about__focus'>
           {focusAreas.map((item, index) => (
-            <motion.article
-              className='glass-panel about__focus-card'
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-            >
+            <article className='glass-panel about__focus-card' key={item.title}>
               <span>0{index + 1}</span>
               <h4>{item.title}</h4>
               <p>{item.copy}</p>
-            </motion.article>
+            </article>
           ))}
         </div>
 
@@ -89,14 +75,7 @@ const About = () => {
         <h3 className='section__subtitle subtitle__center'>Technical Skills</h3>
         <div className='skill-groups'>
           {skillGroups.map((group, index) => (
-            <motion.article
-              className='skill-group'
-              key={group.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-            >
+            <article className='skill-group' key={group.id}>
               <h4>{group.title}</h4>
               <div className='skill-group__items'>
                 {group.items.map((item) => (
@@ -105,7 +84,7 @@ const About = () => {
                   </span>
                 ))}
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </section>
@@ -114,7 +93,9 @@ const About = () => {
 
       <section className='resume'>
         <span className='section-label'>Timeline</span>
-        <h3 className='section__subtitle subtitle__center'>Experience & Education</h3>
+        <h3 className='section__subtitle subtitle__center'>
+          Experience & Education
+        </h3>
         <div className='resume__container grid'>
           <div className='resume__data'>
             {resume
@@ -133,19 +114,15 @@ const About = () => {
         </div>
       </section>
 
-      <motion.aside
-        className='learning'
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
+      <aside className='learning'>
         <p className='learning__label'>Currently learning</p>
         <h3>Stronger full-stack delivery</h3>
         <p>
-          Node.js, Express.js, MongoDB, PostgreSQL, Prisma, and Next.js backend architecture,
-          expanding from frontend ownership toward end-to-end product work.
+          Node.js, Express.js, MongoDB, PostgreSQL, Prisma, and Next.js backend
+          architecture, expanding from frontend ownership toward end-to-end
+          product work.
         </p>
-      </motion.aside>
+      </aside>
     </PageWrapper>
   )
 }

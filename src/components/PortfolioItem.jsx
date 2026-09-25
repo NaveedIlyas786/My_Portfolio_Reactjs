@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { FiArrowUpRight, FiExternalLink, FiStar } from 'react-icons/fi'
 import Dialog from './ui/Dialog'
 
@@ -9,29 +9,17 @@ const ProjectImage = ({
   className = '',
   sizes = '(min-width: 768px) 50vw, 100vw',
 }) => {
-  const imageRef = useRef(null)
-  const [loaded, setLoaded] = useState(false)
-
-  useEffect(() => {
-    const node = imageRef.current
-    if (node?.complete && node.naturalWidth > 0) {
-      setLoaded(true)
-    }
-  }, [src])
-
   return (
     <img
-      ref={imageRef}
       src={src}
       alt={alt}
-      className={`${className} ${loaded ? 'is-loaded' : ''}`.trim()}
+      className={className}
       width={1400}
       height={788}
       sizes={sizes}
-      loading={priority ? 'eager' : 'lazy'}
-      decoding='async'
+      loading='eager'
+      decoding='sync'
       fetchpriority={priority ? 'high' : 'auto'}
-      onLoad={() => setLoaded(true)}
     />
   )
 }
