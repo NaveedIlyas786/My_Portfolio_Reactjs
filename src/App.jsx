@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -13,6 +13,7 @@ import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import Portfolio from './pages/portfolio/Portfolio'
+import Loader from './components/Loader'
 import './tailwind.css'
 
 function AnimatedRoutes() {
@@ -34,8 +35,23 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true)
+  const loaderRef = useRef(null)
+
+  const handleDone = useCallback(() => {
+    if (loaderRef.current) {
+      loaderRef.current.classList.add('is-leaving')
+    }
+    setTimeout(() => setLoading(false), 200)
+  }, [])
+
   return (
     <BrowserRouter>
+      {loading && (
+        <div ref={loaderRef}>
+          <Loader onDone={handleDone} />
+        </div>
+      )}
       <Navbar />
       <Themes />
       <AnimatedRoutes />

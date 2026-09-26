@@ -20,6 +20,7 @@ const ProjectImage = ({
       loading='eager'
       decoding='sync'
       fetchpriority={priority ? 'high' : 'auto'}
+      onLoad={(e) => e.currentTarget.classList.add('is-loaded')}
     />
   )
 }
