@@ -231,8 +231,7 @@ export const portfolio = [
     title: 'MovieSphere Web App',
     short:
       'Movie discovery app powered by TMDB, with search, details, and Redux Toolkit state.',
-    deploylink:
-      'https://movies-visiting-videos-project-gx9atu8e0-naveedilyas786.vercel.app/',
+    deploylink: 'https://movies-visiting-videos-project.vercel.app/',
     comingSoon: false,
     stack: [
       'React.js',
