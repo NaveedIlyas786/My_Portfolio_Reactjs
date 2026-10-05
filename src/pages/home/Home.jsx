@@ -93,7 +93,7 @@ const Home = () => {
         <div className='home__content'>
           <span className='home__badge'>Available for frontend roles</span>
           <p className='home__meta'>
-            Lahore, Pakistan · 3+ years · Tekxai · BuildAi360
+            Lahore, Pakistan · 4 years · Tekxai · BuildAi360
           </p>
           <h1 className='home__title'>
             I&apos;m Naveed Ilyas.
