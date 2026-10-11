@@ -309,7 +309,13 @@
   display: flex;
   width: max-content;
   gap: 0;
-  animation: none;
+  animation: homeMarquee 34s linear infinite;
+}
+
+@keyframes homeMarquee {
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .home-marquee__track span {
@@ -467,8 +473,7 @@
   .home__spark,
   .home__float-dot,
   .home__badge::before,
-  .home__stack .ui-chip,
-  .home-marquee__track {
+  .home__stack .ui-chip {
     animation: none !important;
   }
 
@@ -580,6 +585,12 @@
 
   .home__orbit-content {
     animation: orbitCounterSpin 32s linear infinite !important;
+  }
+}
+
+@media screen and (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .home .home-marquee .home-marquee__track {
+    animation: homeMarquee 34s linear infinite !important;
   }
 }
 
