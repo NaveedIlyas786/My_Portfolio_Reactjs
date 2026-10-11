@@ -2,6 +2,16 @@ import { Link } from 'react-router-dom'
 import { FaArrowRight, FaDownload } from 'react-icons/fa'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 import { FiCpu, FiLayers, FiZap } from 'react-icons/fi'
+import {
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si'
 import Profile from '../../assets/home3.jpg'
 import CV from '../../assets/Naveed_Resume.pdf'
 import { portfolio } from '../../data'
@@ -38,7 +48,16 @@ const marquee = [
   'REST APIs',
   'i18n / RTL',
 ]
-const orbit = ['React', 'Next.js', 'TypeScript', 'TanStack', 'Redux Toolkit']
+const orbit = [
+  { name: 'React', icon: SiReact, color: '#61dafb' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'var(--title-color)' },
+  { name: 'TypeScript', icon: SiTypescript, color: '#3178c6' },
+  { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
+  { name: 'Redux', icon: SiRedux, color: '#764abc' },
+  { name: 'Tailwind', icon: SiTailwindcss, color: '#38bdf8' },
+  { name: 'Node.js', icon: SiNodedotjs, color: '#5fa04e' },
+  { name: 'MongoDB', icon: SiMongodb, color: '#47a248' },
+]
 const highlights = [
   {
     icon: <FiZap />,
@@ -70,23 +89,29 @@ const Home = () => {
             <span className='home__glow' aria-hidden='true' />
             <div className='home__photo'>
               <img src={Profile} alt='Naveed Ilyas' />
-              <div className='home__orbit-cluster'>
-                {orbit.map((chip) => (
-                  <span className='home__orbit' key={chip}>
-                    {chip}
-                  </span>
-                ))}
-              </div>
             </div>
+            <div className='home__orbit-ring home__orbit-ring--inner' aria-hidden='true' />
+            <div className='home__orbit-track' aria-hidden='true'>
+              {orbit.map((tech, index) => {
+                const Icon = tech.icon
 
-            <aside className='home__float home__float--job'>
-              <span className='home__float-dot' />
-              Currently at Tekxai
-            </aside>
-            <aside className='home__float home__float--live'>
-              <span className='home__float-dot' />
-              Open to roles
-            </aside>
+                return (
+                  <span
+                    className='home__orbit'
+                    key={tech.name}
+                    style={{ '--orbit-angle': `${index * 45}deg` }}
+                  >
+                    <span className='home__orbit-content'>
+                      <Icon
+                        className='home__orbit-icon'
+                        style={{ color: tech.color }}
+                      />
+                      <span>{tech.name}</span>
+                    </span>
+                  </span>
+                )
+              })}
+            </div>
           </div>
         </div>
 
