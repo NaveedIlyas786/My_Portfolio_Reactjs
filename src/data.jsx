@@ -15,7 +15,7 @@ import Loadout from './assets/loadout.webp'
 import DealLink from './assets/deallink.webp'
 import Work1 from './assets/movix.png'
 import Work2 from './assets/yt-clone.webp'
-import Work3 from './assets/home-portfolio.webp'
+import Work3 from './assets/home-portfolio.png'
 import Work4 from './assets/construction.webp'
 
 import Theme1 from './assets/purple.png'
