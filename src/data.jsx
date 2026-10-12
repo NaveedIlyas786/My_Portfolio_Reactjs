@@ -402,7 +402,7 @@ export const portfolio = [
     title: 'Personal Portfolio',
     short:
       'This site is a motion-rich React portfolio built to present production work clearly.',
-    deploylink: 'https://my-portfolio-reactjs-opal.vercel.app/',
+    deploylink: 'https://my-portfolio-reactjs-self.vercel.app/',
     comingSoon: false,
     stack: ['React.js', 'Framer Motion', 'Tailwind CSS', 'Vite'],
     bullets: [
@@ -416,7 +416,7 @@ export const portfolio = [
       detail(
         <FiExternalLink />,
         'Preview : ',
-        'https://my-portfolio-reactjs-opal.vercel.app/',
+        'https://my-portfolio-reactjs-self.vercel.app/',
       ),
     ],
   },
